@@ -84,3 +84,9 @@ hr{
     border:0;
     border-bottom:1px dashed #bbb;
 }
+form{
+	width:400px;
+	margin:0 auto;
+	margin-top:20px;
+	text-align:center;
+}

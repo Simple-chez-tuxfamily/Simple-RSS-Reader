@@ -17,7 +17,7 @@
     <body>
     <?php
         if(!isset($_SESSION['uname'])){
-            echo '<h1 id="titre">Connexion</h1><form action="misc.php?connect" method="post">Nom d\'utilisateur:<br /><input type="text" name="pseudo" required /><br />Mot de passe:<br /><input type="password" name="password" required /><br /><br /><input type="checkbox" name="keep" /> Garder la connexion active<br /><br /><input type="submit" value="Connexion" /></form>';
+            echo '<form action="misc.php?connect" method="post"><h1>Connexion</h1>Nom d\'utilisateur:<br /><input type="text" name="pseudo" required /><br />Mot de passe:<br /><input type="password" name="password" required /><br /><br /><input type="checkbox" name="keep" /> Garder la connexion active<br /><br /><input type="submit" value="Connexion" /></form>';
         }
         else{
             $sqlite = new PDO('sqlite:data.db');
