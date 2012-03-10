@@ -32,7 +32,6 @@ header{
     position:fixed;
     overflow:auto;
     padding-top:32px;
-    padding-bottom:32px;
     word-wrap:break-word;
 }
 #droite{
@@ -62,6 +61,9 @@ h1 a, h2 a{
     text-decoration:none;
     color:#222;
 }
+ul{
+    padding-bottom:32px;
+}
 ul li{
     min-height:35px;
     padding:5px 15px;
@@ -85,8 +87,8 @@ hr{
     border-bottom:1px dashed #bbb;
 }
 form{
-	width:400px;
-	margin:0 auto;
-	margin-top:20px;
-	text-align:center;
+    width:400px;
+    margin:0 auto;
+    margin-top:20px;
+    text-align:center;
 }

@@ -42,11 +42,11 @@
                     $query = $sqlite->query('SELECT id,title FROM feeds');
                     while($response = $query->fetch()){ $name[$response['id']] = $response['title']; }
                     $query = $sqlite->query('SELECT * FROM items WHERE read=\'0\' ORDER BY date DESC');
-                    while($response = $query->fetch()){ echo '<li><h2><a target="apercu" href="?read=' . $response['id'] . '&frame">' . utf8_encode($response['title']) . '</a></h2>' . utf8_encode($name[$response['feed_id']]) . '</li>'; }
+                    while($response = $query->fetch()){ echo '<li><h2><a target="apercu" href="?read=' . $response['id'] . '&frame">' . $response['title'] . '</a></h2>' . $name[$response['feed_id']] . '</li>'; }
                     echo '</ul></div><div id="droite"><iframe width="100%" height="100%" scrolling="auto" frameborder="0" src="?read=9999999999&frame" name="apercu"></iframe></div>';
                 }
                 else{
-                    echo '<p style="text-align:center;font-size:17px;padding-top:40px;">Il n\'y a rien à afficher...</p>';
+                    echo '<div id="gauche"><ul><li><h2><a href="check.php">Aucun item à afficher...</a></h2>Pourquoi ne pas lancer une recherche?</li></ul></div><div id="droite"><p style="text-align:center;padding-top:10px;">Il n\'y a rien à afficher...</p></div>';
                 }
             }
             else{
