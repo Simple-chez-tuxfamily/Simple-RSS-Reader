@@ -37,7 +37,6 @@
                     }
                     else{
                         echo ' (' . $result[0] . ' non lus)';
-                        
                     }
                 }
                 echo '</header>';
