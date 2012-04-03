@@ -32,7 +32,12 @@
             if(!isset($_GET['frame'])){
                 echo '<header>Simple RSS Reader';
                 if(!$nothing){
-                    echo ' (' . $result[0] . ' non lus)';
+                    if($result[0] == 1){
+                        echo ' (1 non lu)';
+                    }
+                    else{
+                        echo ' (' . $result[0] . ' non lus)';
+                    }
                 }
                 echo '</header>';
             }
