@@ -53,7 +53,7 @@
                 $query = $sqlite->query('SELECT * FROM items WHERE id=' . $sqlite->quote($_GET['read']));
                 $response = $query->fetch();
                 if(!empty($response['title'])){
-                    echo '<article><h1><a href="' . $response['permalink'] . '">' . $response['title'] . '</a></h1><span id="infos">Posté le ' . date('d/m/Y à G\hi\m',$response['date']) . '</span><hr />' . $response['description'] . '</article>';
+                    echo '<article><h1><a href="' . $response['permalink'] . '">' . $response['title'] . '</a></h1><span id="infos">Posté le ' . date('d/m/Y à G\hi\m',$response['date']) . '. <a style="color:#888;text-decoration:none;font-weight:bold;" href="misc.php?unread=' . $_GET['read'] . '">Marquer comme non lu</a></span><hr />' . $response['description'] . '</article>';
                     $sqlite->query('UPDATE items SET read=\'1\' WHERE id=' . $sqlite->quote($_GET['read']));
                 }
             }
