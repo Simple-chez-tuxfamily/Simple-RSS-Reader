@@ -16,7 +16,7 @@
     }
     elseif(isset($_GET['unread']) && is_numeric($_GET['unread'])){
         $sqlite = new PDO('sqlite:data.db');
-        $sqlite->query('UPDATE items SET read="0" WHERE id="' . $sqlite->quote($_GET['unread']) . '"');
+        $sqlite->query('UPDATE items SET read="0" WHERE id="' . $_GET['unread'] . '"');
         $redirect = 0;
     }
     if($redirect == 1){    
