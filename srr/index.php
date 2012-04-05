@@ -17,7 +17,7 @@
     <body>
     <?php
         if(!isset($_SESSION['uname'])){
-            echo '<form action="misc.php?connect" method="post"><h1>Connexion</h1>Nom d\'utilisateur:<br /><input type="text" name="pseudo" required /><br />Mot de passe:<br /><input type="password" name="password" required /><br /><br /><input type="checkbox" name="keep" /> Garder la connexion active<br /><br /><input type="submit" value="Connexion" /></form>';
+            echo '<form id="connect" action="misc.php?connect" method="post"><h1>Connexion</h1>Nom d\'utilisateur:<br /><input type="text" name="pseudo" required /><br />Mot de passe:<br /><input type="password" name="password" required /><br /><br /><input type="checkbox" name="keep" /> Garder la connexion active<br /><br /><input type="submit" value="Connexion" /></form>';
         }
         else{
             $sqlite = new PDO('sqlite:data.db');
@@ -30,7 +30,7 @@
                 $nothing = true;
             }
             if(!isset($_GET['frame'])){
-                echo '<header>Simple RSS Reader';
+                echo '<header><a href="params.php" target="apercu">Simple RSS Reader</a>';
                 if(!$nothing){
                     if($result[0] == 1){
                         echo ' (1 non lu)';
@@ -51,7 +51,7 @@
                     echo '</ul></div><div id="droite"><iframe width="100%" height="100%" scrolling="auto" frameborder="0" src="?read=9999999999&frame" name="apercu"></iframe></div>';
                 }
                 else{
-                    echo '<div id="gauche"><ul><li><h2><a href="check.php">Aucun item à afficher...</a></h2>Pourquoi ne pas lancer une recherche?</li></ul></div><div id="droite"><p style="text-align:center;padding-top:10px;">Il n\'y a rien à afficher...</p></div>';
+                    echo '<div id="gauche"><ul><li><h2><a href="check.php">Aucun item à afficher...</a></h2>Pourquoi ne pas lancer une recherche?</li></ul></div><div id="droite"><iframe width="100%" height="100%" scrolling="auto" frameborder="0" src="?read=9999999999&frame" name="apercu"></iframe></div>';
                 }
             }
             else{
@@ -59,7 +59,9 @@
                 $response = $query->fetch();
                 if(!empty($response['title'])){
                     echo '<article><h1><a href="' . $response['permalink'] . '">' . $response['title'] . '</a></h1><span id="infos">Posté le ' . date('d/m/Y à G\hi\m',$response['date']) . '. <a style="color:#888;text-decoration:none;font-weight:bold;" href="misc.php?unread=' . $_GET['read'] . '">Marquer comme non lu</a></span><hr />' . $response['description'] . '</article>';
-                    $sqlite->query('UPDATE items SET read=\'1\' WHERE id=' . $sqlite->quote($_GET['read']));
+                    if(!isset($_GET['unread'])){
+                        $sqlite->query('UPDATE items SET read=\'1\' WHERE id=' . $sqlite->quote($_GET['read']));
+                    }
                 }
             }
         }

@@ -23,6 +23,10 @@ header{
     z-index:2;
     position:fixed;
 }
+header a{
+    color:#eee;
+    text-decoration:none;
+}
 #gauche{
     width:25%;
     background:#eee;
@@ -86,9 +90,29 @@ hr{
     border:0;
     border-bottom:1px dashed #bbb;
 }
-form{
-    width:400px;
+#connect{
+    width:250px;
     margin:0 auto;
-    margin-top:20px;
+    padding:5px 10px;
     text-align:center;
+    margin-top:20px;
+    background:#fcfcfc;
+    border:1px solid #eaeaea;
+    border-radius:13px;
+}
+input[type="submit"]{
+    padding:1px 3px;
+}
+table{
+    border:1px solid #eaeaea;
+    font-size:12px;
+}
+thead{
+    background:#ddd;
+    border:1px solid #eaeaea;
+    font-weight:bold;
+    font-size:13px;
+}
+tbody a{
+    text-decoration:none;
 }

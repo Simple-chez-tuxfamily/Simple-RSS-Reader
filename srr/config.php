@@ -1,8 +1,8 @@
 <?php
     // Votre nom d'utilisateur
     $config['uname'] = '';
-    // Votre mot de passe hashé en SHA1 sous la forme "pseudo+passe+pseudo" (sans les "+")
+    // Votre mot de passe hashÃ© en SHA1 sous la forme "pseudo+passe+pseudo" (sans les "+")
     $config['passwd'] = '';
-    // Le thème utilisé
+    // Le thÃ¨me utilisÃ©
     $config['theme'] = 'defaut';
 ?>
