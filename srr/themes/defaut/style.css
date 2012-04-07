@@ -51,6 +51,9 @@ header a{
 }
 article{
     word-wrap:break-word;
+    padding:10px;
+    text-align:justify;
+    font-size:12px;
 }
 h1{
     font-size:20px;
@@ -75,11 +78,6 @@ ul li{
     color:#a4a4a4;
     font-size:12px;
     border-bottom:1px solid #dcdcdc;
-}
-article{
-    padding:10px;
-    text-align:justify;
-    font-size:12px;
 }
 #infos{
     color:#777;
