@@ -2,6 +2,8 @@
     set_time_limit(0);
     error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
     include 'simplepie.inc';
+    include 'config.php';
+    $config['verif_time'] = $config['verif_time'] * 60;
     $simple = new SimplePie();
     $simple->enable_cache(false);
     $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT);
@@ -13,7 +15,7 @@
         $ddate = $sqlite->query('SELECT last_check FROM feeds WHERE id=' . $sqlite->quote($response['id']));
         $ddate = $ddate->fetch();
         $ddate = $ddate[0];
-        if(time() > $ddate + 1500){
+        if(time() > $ddate + $config['verif_time']){
             $simple->set_feed_url($response['url']);
             $simple->init();
             $simple->handle_content_type();
