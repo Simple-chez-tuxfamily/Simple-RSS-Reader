@@ -6,12 +6,13 @@
     $config['verif_time'] = $config['verif_time'] * 60;
     $simple = new SimplePie();
     $simple->enable_cache(false);
-    $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT);
+    $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT.' (with Simple RSS Reader)');
     $sqlite = new PDO('sqlite:data.db');
     $sqlite->query('DELETE FROM items WHERE read=\'1\'');
     $sqlite->query('VACUUM');
     $query = $sqlite->query('SELECT id,url FROM feeds');
     while($response = $query->fetch()){
+        usleep($config['between']);
         $ddate = $sqlite->query('SELECT last_check FROM feeds WHERE id=' . $sqlite->quote($response['id']));
         $ddate = $ddate->fetch();
         $ddate = $ddate[0];
