@@ -50,12 +50,6 @@
                     <label for="pwd2">Nouveau mot de passe:</label><input type="password" name="pwd2" required /><br />
                     <label for="pwd3">Nouveau mot de passe (encore):</label><input type="password" name="pwd3" required /><br /><br />
                     <label for="nothing"></label><input name="nothing" type="submit" value="Changer le mot de passe" />
-                </form><h2>Paramètres divers</h2>
-                <form action="user.php" method="GET"><table><thead><tr><td>Paramètre</td><td>Valeur</td></tr></thead><tbody>
-                    <tr><td>Afficher tous les items non lu sur une <a href="../public/?id=' . $_SESSION['id'] . '">page publique</a>.</td><td style="text-align:center;"><input type="checkbox" name="public" /></td></tr>
-                    <tr><td>Afficher tous les items non lu sur un <a href="../public/rss.php?id=' . $_SESSION['id'] . '">flux public</a>.</td><td style="text-align:center;"><input type="checkbox" name="lls" /></td></tr>
-                    <tr><td>Lire les items directement sur leur site d\'origine.</td><td style="text-align:center;"><input type="checkbox" name="lls" /></td></tr>
-                    </tbody></table><br /><input type="submit" value="Enregistrer les paramètres" />
                 </form></fieldset>';
                 if($_SESSION['admin'] == 1){
                     echo '<br /><fieldset><legend>Gestion des utilisateurs</legend><h2>Ajouter un utilisateur</h2>
