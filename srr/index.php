@@ -1,26 +1,24 @@
 <?php
     session_start();
-    include 'config.php';
-    if(!isset($_SESSION['uname']) && isset($_COOKIE['is_connected']) && $_COOKIE['is_connected'] == $config['uname'] . ';' . $config['passwd']){
-        $_SESSION['uname'] = $config['uname'];
-        header('Location: index.php');
+    if(!isset($_SESSION['theme'])){
+        $_SESSION['theme'] = 'defaut';
     }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Simple RSS Reader</title>
-        <link type="text/css" rel="stylesheet" href="themes/<?php echo $config['theme']; ?>/style.css" />
-        <link rel="shortcut icon" type="image/png" href="favicon.png" />
+        <link type="text/css" rel="stylesheet" href="themes/<?php echo $_SESSION['theme']; ?>/style.css" />
+        <link rel="shortcut icon" type="image/png" href="themes/<?php echo $_SESSION['theme']; ?>/images/favicon.png" />
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
     </head>
     <body>
     <?php
         if(!isset($_SESSION['uname'])){
-            echo '<form id="connect" action="misc.php?connect" method="post"><h1>Connexion</h1>Nom d\'utilisateur:<br /><input type="text" name="pseudo" required /><br />Mot de passe:<br /><input type="password" name="password" required /><br /><br /><input type="checkbox" name="keep" /> Garder la connexion active<br /><br /><input type="submit" value="Connexion" /></form>';
+            header('Location: connexion/');
         }
         else{
-            $sqlite = new PDO('sqlite:data.db');
+            $sqlite = new PDO('sqlite:include/data.db');
             $result = $sqlite->query('SELECT count(id) FROM items WHERE read="0" AND user_id="' . $_SESSION['id'] . '"');
             $result = $result->fetch();
             if($result[0] > 0){
@@ -30,7 +28,7 @@
                 $nothing = true;
             }
             if(!isset($_GET['frame'])){
-                echo '<header><a href="params.php" target="apercu">Simple RSS Reader</a>';
+                echo '<header><a href="parametres/" target="apercu">Simple RSS Reader</a>';
                 if(!$nothing){
                     if($result[0] == 1){
                         echo ' (1 non lu)';
@@ -53,7 +51,7 @@
                         echo '<li><h2><a target="apercu" id="i' . $response['id'] . '" onclick="document.getElementById(\'i' . $response['id'] . '\').style.fontWeight = \'lighter\'" href="?read=' . $response['id'] . '&frame">' . $response['title'] . '</a></h2>' . $name[$response['feed_id']] . '</li>';
                     }
                 }
-                echo '<li style="border-top:1px solid #bbb;margin-top:-1px;"><h2><a href="check.php">Lancer une recherche</a></h2>Cliquez ici pour lancer une recherche</li></ul></div><div id="droite"><iframe width="100%" height="100%" scrolling="auto" frameborder="0" src="?read=9999999999&frame" name="apercu"></iframe></div>';
+                echo '<li style="border-top:1px solid #bbb;margin-top:-1px;"><h2><a href="check.php?id=' . $_SESSION['id'] . '">Lancer une recherche</a></h2>Cliquez ici pour lancer une recherche</li></ul></div><div id="droite"><iframe width="100%" height="100%" scrolling="auto" frameborder="0" src="?read=9999999999&frame" name="apercu"></iframe></div>';
             }
             else{
                 $query = $sqlite->query('SELECT * FROM items WHERE id=' . $sqlite->quote($_GET['read']) . ' AND user_id="' . $_SESSION['id'] . '"');
