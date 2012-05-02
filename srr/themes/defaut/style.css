@@ -98,19 +98,3 @@ hr{
     border:1px solid #eaeaea;
     border-radius:13px;
 }
-input[type="submit"]{
-    padding:1px 3px;
-}
-table{
-    border:1px solid #eaeaea;
-    font-size:12px;
-}
-thead{
-    background:#ddd;
-    border:1px solid #eaeaea;
-    font-weight:bold;
-    font-size:13px;
-}
-tbody a{
-    text-decoration:none;
-}

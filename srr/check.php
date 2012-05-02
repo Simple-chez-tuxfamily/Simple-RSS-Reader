@@ -1,21 +1,20 @@
 <?php
     set_time_limit(0);
     error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-    include 'simplepie.inc';
-    include 'config.php';
-    $config['verif_time'] = $config['verif_time'] * 60;
+    if(!isset($_GET['id'])){ die(); }
+    include 'include/simplepie.inc';
     $simple = new SimplePie();
     $simple->enable_cache(false);
-    $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT);
-    $sqlite = new PDO('sqlite:data.db');
+    $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT.' (with Simple RSS Reader)');
+    $sqlite = new PDO('sqlite:include/data.db');
     $sqlite->query('DELETE FROM items WHERE read=\'1\'');
     $sqlite->query('VACUUM');
-    $query = $sqlite->query('SELECT id,url FROM feeds');
+    $query = $sqlite->query('SELECT id,url FROM feeds WHERE user_id="' . $_GET['id'] . '"');
     while($response = $query->fetch()){
-        $ddate = $sqlite->query('SELECT last_check FROM feeds WHERE id=' . $sqlite->quote($response['id']));
+        $ddate = $sqlite->query('SELECT last_check FROM feeds WHERE id="' . $response['id'] . '" AND user_id="' . $_GET['id'] . '"');
         $ddate = $ddate->fetch();
         $ddate = $ddate[0];
-        if(time() > $ddate + $config['verif_time']){
+        if(time() > $ddate + 1200){
             $simple->set_feed_url($response['url']);
             $simple->init();
             $simple->handle_content_type();
@@ -33,7 +32,7 @@
                 if($date < $ddate){ break; }
                 else{
                     $date = $sqlite->quote($date);
-                    $sqlite->query('INSERT INTO items VALUES(' . $maxid . ',' . $response['id'] . ',' . $title . ',' . $permalink . ',' . $description . ',' . $date . ',\'0\')');   
+                    $sqlite->query('INSERT INTO items VALUES(' . $maxid . ',' . $response['id'] . ',' . $title . ',' . $permalink . ',' . $description . ',' . $date . ',\'0\',' . $_GET['id'] . ')');   
                 }
             }
             $sqlite->query('UPDATE feeds SET last_check=' . $sqlite->quote(time()) . ' WHERE id=' . $sqlite->quote($response['id']));
