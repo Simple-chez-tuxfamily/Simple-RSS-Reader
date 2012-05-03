@@ -12,13 +12,9 @@
             $pass = $sqlite->quote(sha1($_POST['user'] . $_POST['pwd1'] . $_POST['user']));
             $sqlite->query('INSERT INTO users VALUES(' . $maxid . ',' . $user . ',' . $pass . ',"0","defaut")');   
         }
-        header('Location: index.php');
     }
     elseif(isset($_GET['deluser']) && is_numeric($_GET['deluser']) && $_SESSION['admin'] == 1){
         $sqlite->query('DELETE FROM users WHERE id="' . $_GET['deluser'] . '" AND admin="0"');    
-        header('Location: index.php');
     }
-    else{
-        header('Location: index.php');
-    }
+    header('Location: index.php');
 ?>

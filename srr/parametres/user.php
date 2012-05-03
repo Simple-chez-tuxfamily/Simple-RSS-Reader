@@ -9,14 +9,10 @@
             $pass = $sqlite->quote(sha1($_SESSION['uname'] . $_POST['pwd2'] . $_SESSION['uname']));
             $sqlite->query('UPDATE users SET password=' . $pass . ' WHERE id="' . $_SESSION['id'] . '"');   
         }
-        header('Location: index.php');
     }
     elseif(isset($_GET['theme'],$_SESSION['id'])){
         $sqlite->query('UPDATE users SET theme=' . $sqlite->quote($_GET['theme']) . ' WHERE id="' . $_SESSION['id'] . '"');   
         $_SESSION['theme'] = $_GET['theme'];
-        header('Location: index.php');
     }
-    else{
-        header('Location: index.php');
-    }
+    header('Location: index.php');
 ?>

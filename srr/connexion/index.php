@@ -17,7 +17,7 @@
                 header('Location: connect.php?pseudo=' . $cookie[0] . '&password=' . $cookie[1]);
             }
         }
-        if(!isset($_SESSION['uname'])){
+        elseif(!isset($_SESSION['uname'])){
             echo '<form id="connect" action="connect.php" method="get">
                 <h1>Connexion</h1>
                 <label for="pseudo">Nom d\'utilisateur:</label><br /><input type="text" name="pseudo" required /><br />

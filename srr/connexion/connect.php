@@ -6,7 +6,7 @@
         $_GET['pseudo'] = $sqlite->quote($_GET['pseudo']);
         $query = $sqlite->query('SELECT * FROM users WHERE username=' . $_GET['pseudo'] . ' AND password=' . $_GET['password']);
         $result = $query->fetch();
-        if(!empty($result[0])){
+        if(isset($result['id'])){
             $_SESSION['id'] = $result[0];
             $_SESSION['uname'] = $result[1];
             $_SESSION['admin'] = $result[3];
@@ -18,9 +18,6 @@
         else{
             setcookie('is_connected','',1);
         }
-        header('Location: ../index.php');
     }
-    else{
-        header('Location: ../index.php');
-    }
+    header('Location: ../index.php');
 ?>

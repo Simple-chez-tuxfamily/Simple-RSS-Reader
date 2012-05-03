@@ -6,7 +6,7 @@
         include '../include/simplepie.inc';
         $simple = new SimplePie();
         $simple->enable_cache(false);
-        $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT);
+        $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT.' (with Simple RSS Reader)');
         $simple->set_feed_url($_GET['url']);
         $simple->init();
         $simple->handle_content_type();
@@ -15,13 +15,9 @@
         $maxid = $maxid->fetch();
         $maxid = $maxid[0] + 1;
         $sqlite->query('INSERT INTO feeds VALUES(' . $maxid . ',' . $sqlite->quote($_GET['title']) . ',' . $sqlite->quote($_GET['url']) . ',' . $sqlite->quote(time()) . ',"' . $_SESSION['id'] . '")');   
-        header('Location: index.php');
     }
     elseif(isset($_GET['del']) && is_numeric($_GET['del'])){
         $sqlite->query('DELETE FROM feeds WHERE id="' . $_GET['del'] . '"');    
-        header('Location: index.php');
     }
-    else{
-        header('Location: index.php');
-    }
+    header('Location: index.php');
 ?>
