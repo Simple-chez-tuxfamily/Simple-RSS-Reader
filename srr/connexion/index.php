@@ -1,4 +1,7 @@
 <?php
+    if(file_exists('../installation/install.php')){
+        header('Location: ../installation/index.php');
+    }
     session_start();
 ?>
 <!DOCTYPE html>
