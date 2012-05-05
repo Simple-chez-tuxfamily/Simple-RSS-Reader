@@ -21,23 +21,15 @@
             $sqlite = new PDO('sqlite:include/data.db');
             $result = $sqlite->query('SELECT count(id) FROM items WHERE read="0" AND user_id="' . $_SESSION['id'] . '"');
             $result = $result->fetch();
-            if($result[0] > 0){
-                $nothing = false;
-            }
-            else{
-                $nothing = true;
-            }
             echo '<header><a href="parametres/" target="apercu">Simple RSS Reader</a>';
-            if(!$nothing){
-                if($result[0] == 1){
+            if($result[0] == 1){
                     echo ' (1 non lu)';
-                }
-                else{
-                    echo ' (' . $result[0] . ' non lus)';
-                }
+            }
+            elseif($result[0] > 1){
+                echo ' (' . $result[0] . ' non lus)';
             }
             echo '</header><div id="gauche"><ul>';
-            if(!$nothing){
+            if($result[0] > 0){
                 $query = $sqlite->query('SELECT id,title FROM feeds WHERE user_id="' . $_SESSION['id'] . '"');
                 while($response = $query->fetch()){
                     $name[$response['id']] = $response['title'];
