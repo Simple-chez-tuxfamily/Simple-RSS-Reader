@@ -15,7 +15,7 @@
                 <fieldset><legend>Mes flux suivis</legend><h2>Ajouter un flux</h2>
                 <form action="feeds.php" method="get">
                     <label for="url" style="margin-right:-40px;">Adresse du flux à ajouter:</label><input type="url" name="url" required /><br /><br />
-                    <label for="nothing" style="margin-right:-40px;"></label><input type="submit" value="Ajouter le flux" /></form>';
+                    <label for="nothing" style="margin-right:-40px;"></label><input type="submit" value="Ajouter le flux" /></form>';                
                 $sqlite = new PDO('sqlite:../include/data.db');
                 $query = $sqlite->query('SELECT id,url,title FROM feeds WHERE user_id="' . $_SESSION['id'] . '"');
                 $nbr = $sqlite->query('SELECT count(id) FROM feeds WHERE user_id="' . $_SESSION['id'] . '"');
@@ -31,7 +31,13 @@
                     }
                     echo '</tbody></table>';
                 }
-                echo '</fieldset><br /><fieldset><legend>Mon compte</legend><h2>Thème</h2><table><thead><tr><td>Nom du thème</td><td>Action</td></tr></thead><tbody>';
+                echo '</fieldset><br /><fieldset><legend>Import/Export</legend>
+		<h2>Importer un flux (fichier .opml ou .xml)</h2>
+                <form action="import.php" method="post" enctype="multipart/form-data">
+                    Fichier à importer: <input type="file" name="file"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value="Importer" />
+		<h2>Exporter les flux</h2>
+		<p><a href="./export.php" title="Exporter les flux">Cliquez ici</a> pour exporter vos flux.</p>
+                </form></fieldset><br /><fieldset><legend>Mon compte</legend><h2>Thème</h2><table><thead><tr><td>Nom du thème</td><td>Action</td></tr></thead><tbody>';
                 $repertoire = opendir('../themes');
                 $nbrt = 0;
                 while($contenu = readdir($repertoire)){
