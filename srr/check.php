@@ -20,6 +20,12 @@
                 $maxid = $sqlite->query('SELECT max(id) FROM items');
                 $maxid = $maxid->fetch();
                 $maxid = $maxid[0] + 1;
+                
+                // If there is already an article with the same name in the BDD, break();
+                $already_exist = $sqlite->query('SELECT count(*) AS nb_article FROM items WHERE title = '.$sqlite->quote($item->get_title()));
+                $already_exist = $already_exist->fetch();
+                if(intval($already_exist['nb_article']) > 0) break 1; 
+                
                 $permalink = $sqlite->quote($item->get_permalink());
                 $title = $sqlite->quote($item->get_title());
                 $description = $sqlite->quote($item->get_content());
