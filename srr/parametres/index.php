@@ -16,6 +16,14 @@
                 <form action="feeds.php" method="get">
                     <label for="url" style="margin-right:-40px;">Adresse du flux à ajouter:</label><input type="url" name="url" required /><br /><br />
                     <label for="nothing" style="margin-right:-40px;"></label><input type="submit" value="Ajouter le flux" /></form>';
+                    
+                echo '<br/><br/><h2>Importer un flux (fichier .opml ou .xml)</h2>
+                <form action="./import.php" method="post" enctype="multipart/form-data">
+                	<input type="file" name="file"/><br/><br/>
+                	<input type="submit" name="submit" value="Importer !" />
+                </form>
+                ';
+                
                 $sqlite = new PDO('sqlite:../include/data.db');
                 $query = $sqlite->query('SELECT id,url,title FROM feeds WHERE user_id="' . $_SESSION['id'] . '"');
                 $nbr = $sqlite->query('SELECT count(id) FROM feeds WHERE user_id="' . $_SESSION['id'] . '"');
@@ -25,7 +33,7 @@
                     if($nbr[0] > 1){
                         echo 's ' . $nbr[0];
                     }
-                    echo ' flux</h2><table><thead><tr><td>Nom du flux</td><td>Action</td></tr></thead><tbody>';
+                    echo ' flux - <a href="./export.php" title="Exporter les flux">Exporter</a></h2><table><thead><tr><td>Nom du flux</td><td>Action</td></tr></thead><tbody>';
                     while($response = $query->fetch()){
                         echo '<tr><td><a href="' . $response['url'] . '">' . $response['title'] . '</a></td><td><a href="feeds.php?del=' . $response['id'] . '">Supprimer</a></td></tr>';
                     }
