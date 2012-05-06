@@ -40,8 +40,8 @@ else:
 					$maxid = $sqlite->query('SELECT max(id) FROM feeds');
 					$maxid = $maxid->fetch();
 					$maxid = $maxid[0] + 1;
-					$maxid = $sqlite->quote($maxid);
-					$title = $sqlite->quote($flux['title']);
+					$maxid = $sqlite->quote($maxid); 
+					$title = (empty($flux['title'])) ? $sqlite->quote($flux['text']) : $sqlite->quote($flux['title']);
 					$url = $sqlite->quote($flux['htmlUrl']);
 			
 			
@@ -63,7 +63,7 @@ else:
 				$maxid = $maxid->fetch();
 				$maxid = $maxid[0] + 1;
 				$maxid = $sqlite->quote($maxid);
-				$title = $sqlite->quote($entry['title']);
+				$title = (empty($entry['title'])) ? $sqlite->quote($entry['text']) : $sqlite->quote($entry['title']);
 				$url = $sqlite->quote($entry['htmlUrl']);
 			
 			
