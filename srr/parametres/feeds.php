@@ -17,7 +17,8 @@
         $sqlite->query('INSERT INTO feeds VALUES(' . $maxid . ',' . $sqlite->quote($_GET['title']) . ',' . $sqlite->quote($_GET['url']) . ',' . $sqlite->quote(time()) . ',"' . $_SESSION['id'] . '")');   
     }
     elseif(isset($_GET['del']) && is_numeric($_GET['del'])){
-        $sqlite->query('DELETE FROM feeds WHERE id="' . $_GET['del'] . '"');    
+        $sqlite->query('DELETE FROM feeds WHERE id="' . $_GET['del'] . '"');
+        $sqlite->query('DELETE FROM items WHERE feed_id="'.$_GET['del'].'"');
     }
     header('Location: index.php');
 ?>
