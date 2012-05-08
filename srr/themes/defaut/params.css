@@ -8,7 +8,7 @@ html,body{
     font-family:sans-serif;
 }
 .message{
-    margin:5px 15px;
+    margin:5px 0;
     font-size:12px;
     padding:5px 10px;
 }
@@ -27,6 +27,39 @@ label{
     width:190px;
     float:left;
     margin:3px 0;
+}
+#gauche{
+    width:25%;
+    background:#eee;
+    border-right:1px solid #ccc;
+    height:100%;
+    overflow:auto;
+    word-wrap:break-word;
+}
+#gauche ul li{
+    height:20px;
+    line-height:20px;
+    padding:5px 15px;
+    font-size:13px;
+    list-style:none;
+    border-bottom:1px solid #dcdcdc;
+}
+#gauche ul li a{
+    color:#333;
+    text-decoration:none;
+    font-weight:bold;
+}
+#droite{
+    width:75%;
+    background:#fbfbfb;
+    position:absolute;
+    right:0;
+    top:0;
+    height:100%;
+}
+h1{
+    font-size:20px;
+    
 }
 table{
     border:1px solid #444;

@@ -11,7 +11,7 @@ $file = simplexml_load_string($xml);
 $sqlite = new PDO('sqlite:../include/data.db');
 
 if(!$file):
-	header('Location: index.php?msg=0');
+	header('Location: index.php?page=impexp&msg=0');
 else:
 
 	foreach($file->body->outline as $entry):
@@ -59,7 +59,7 @@ else:
 			endif;	
 		endif;
 	endforeach;
-	header('Location: index.php?msg=1');
+	header('Location: index.php?page=impexp&msg=1');
 	
 endif;
 ?>

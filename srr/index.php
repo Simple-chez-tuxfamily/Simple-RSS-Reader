@@ -16,7 +16,8 @@
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
         <script type="text/javascript" src="srr.js"></script>
     </head>
-    <body onload="resize_frame();change_color('fnl');">
+    <body onload="hide_msg();resize_frame();change_color('fnl');">
+        <h1 id="jserror" style="color:#aa0000;margin:5px;">Erreur: Javascript n'est pas activé!</h1>
     <?php
         $sqlite = new PDO('sqlite:include/data.db');
         $result = $sqlite->query('SELECT count(id) FROM items WHERE read="0" AND user_id="' . $_SESSION['id'] . '"');

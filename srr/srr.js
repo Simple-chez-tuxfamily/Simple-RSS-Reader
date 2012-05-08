@@ -1,3 +1,7 @@
+/* Fonction qui cache l'erreur "Javascript n'est pas activé" */
+function hide_msg(){
+    document.getElementById('jserror').style.display = 'none';
+}
 /* Fonction pour redimensionner l'iframe principale (redimensionne toutes les 500ms*/
 function resize_frame(){
     var header_h = 37; // Hauteur de <header>
