@@ -164,7 +164,7 @@
                                 include '../include/simplepie.inc';
                                 $simple = new SimplePie();
                                 $simple->enable_cache(false);
-                                $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT.' (with Simple RSS Reader)');
+                                $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT.' (Simple RSS Reader - Update)');
                                 $simple->set_feed_url($flux);
                                 $simple->init();
                                 $simple->handle_content_type();

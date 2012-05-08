@@ -18,6 +18,10 @@ function change_color(id){
     document.getElementById('fnl').style.color = '#eee';
     document.getElementById(id).style.color = '#f1b880';
 }
+/* Fonction pour afficher le nombre de flux non lu */
+function set_unread(nbr){
+    //parent.frames['top'].document.getElementById('i' + id).style.fontWeight = 'bold';
+}
 /* Fonction pour marquer un item comme lu/non lu */
 function change_state(id,action){
     if(action == 'read'){
