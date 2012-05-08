@@ -11,14 +11,23 @@
         $simple->init();
         $simple->handle_content_type();
         $_GET['title'] = $simple->get_title();
-        $maxid = $sqlite->query('SELECT max(id) FROM feeds');
-        $maxid = $maxid->fetch();
-        $maxid = $maxid[0] + 1;
-        $sqlite->query('INSERT INTO feeds VALUES(' . $maxid . ',' . $sqlite->quote($_GET['title']) . ',' . $sqlite->quote($_GET['url']) . ',' . $sqlite->quote(time()) . ',"' . $_SESSION['id'] . '")');   
+        if(!empty($_GET['title'])){
+            $maxid = $sqlite->query('SELECT max(id) FROM feeds');
+            $maxid = $maxid->fetch();
+            $maxid = $maxid[0] + 1;
+            $sqlite->query('INSERT INTO feeds VALUES(' . $maxid . ',' . $sqlite->quote($_GET['title']) . ',' . $sqlite->quote($_GET['url']) . ',' . $sqlite->quote(time()) . ',"' . $_SESSION['id'] . '")');   
+            header('Location: index.php?msg=9');
+        }
+        else{
+            header('Location: index.php?msg=10');
+        }
     }
     elseif(isset($_GET['del']) && is_numeric($_GET['del'])){
         $sqlite->query('DELETE FROM feeds WHERE id="' . $_GET['del'] . '"');
         $sqlite->query('DELETE FROM items WHERE feed_id="'.$_GET['del'].'"');
+        header('Location: index.php?msg=8');
     }
-    header('Location: index.php');
+    else{
+        header('Location: index.php?msg=2');
+    }
 ?>

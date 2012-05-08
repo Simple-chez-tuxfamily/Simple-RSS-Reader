@@ -1,5 +1,6 @@
 <?php 
 session_start();
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 header('Content-type: text/xml');
 header('Content-Disposition: attachment; filename="feeds_opml_srr.xml"');
 
@@ -29,7 +30,6 @@ $foot = '</body></opml>';
 /* Fetch feeds */
 $feeds = '';
 while($feed = $query->fetch()){
-	//print_r($feed);
 	$simplePie->set_feed_url($feed['url']);
 	$simplePie->init();
 	$simplePie->handle_content_type();

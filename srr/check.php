@@ -27,9 +27,9 @@
                     $description = $sqlite->quote($item->get_description());
                 }
                 // If there is already an article with the same description in the BDD, break();
-                $already_exist = $sqlite->query('SELECT count(id) AS nb_article FROM items WHERE description='.$description);
+                /*$already_exist = $sqlite->query('SELECT count(id) AS nb_article FROM items WHERE description='.$description);
                 $already_exist = $already_exist->fetch();
-                if(intval($already_exist['nb_article']) > 0) break 1;
+                if(intval($already_exist['nb_article']) > 0) break 1;*/
                 $date = strtotime($item->get_date());
                 if($date < $ddate){ break; }
                 else{

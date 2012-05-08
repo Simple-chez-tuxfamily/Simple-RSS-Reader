@@ -8,23 +8,10 @@ $xml = file_get_contents($_FILES['file']['tmp_name']);
 $file = simplexml_load_string($xml);
 
 /* SQLite3 */
-$sqlite = new PDO('sqlite:../include/data.db'); ?>
+$sqlite = new PDO('sqlite:../include/data.db');
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Paramètres</title>
-        <link type="text/css" rel="stylesheet" href="../themes/<?php echo $_SESSION['theme']; ?>/params.css" />
-        <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
-    </head>
-    <body>
-
-		<article><h1>Paramètres (<a href="../connexion/disconnect.php">déconnexion</a>)</h1><hr /><fieldset>
-<?php
 if(!$file):
-	echo '<p>Erreur lors de l\'import, le fichier est probablement invalide.<br/>';
-	echo '<a href="./">Retour</a></p>';
-
+	header('Location: index.php?msg=0');
 else:
 
 	foreach($file->body->outline as $entry):
@@ -72,12 +59,7 @@ else:
 			endif;	
 		endif;
 	endforeach;
-	
-	echo '<p>L\'importation a bien été effectuée.<br/>';
-	echo '<a href="./">Retour</a></p>';
+	header('Location: index.php?msg=1');
 	
 endif;
 ?>
-		</fieldset></article>		
-	</body>
-</html>

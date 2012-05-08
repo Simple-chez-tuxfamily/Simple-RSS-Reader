@@ -4,64 +4,23 @@
 }
 html,body{
     height:100%;
-}
-body{
-    background:#f5f5f5;
+    background:#fbfbfb;
     font-family:sans-serif;
-    font-size:13px;
 }
-article{
-    word-wrap:break-word;
-    padding:10px;
-    text-align:justify;
+.message{
+    margin:5px 15px;
     font-size:12px;
-}
-h1 a, h2 a{
-    text-decoration:none;
-    color:#222;
-}
-hr{
-    margin:7px -10px;
-    border:0;
-    border-bottom:1px dashed #bbb;
-}
-input[type="checkbox"]{
-    cursor:pointer;
-}
-input[type="text"],input[type="password"],input[type="url"]{
-    background:url('images/text.png') repeat-x;
-    height:13px;
-    border:1px solid #ccc;
-    border-radius:4px;
-    padding:3px 4px;
-    margin:1px 0;
-    width:150px;
-}
-input[type="submit"]{
-    padding:4px 8px;
-    font-size:12px;
-    background:url('images/header.png');
-    color:white;
-    border-radius:4px;
-    border:0;
-    cursor:pointer;
-    width:164px;
-}
-fieldset{
-    padding:5px;
-    border-radius:4px;
-    border:1px solid #ccc;
-    background:#f3f3f3;
-}
-legend{
     padding:5px 10px;
-    width:165px;
-    text-align:center;
-    background:url('images/header.png');
-    color:white;
-    border-radius:4px;
-    font-size:12px;
-    font-weight:normal;
+}
+.confirmation{
+    background:#ddffb7;
+    border:1px solid #3f7700;
+    color:#3f7700;
+}
+.erreur{
+    background:#ffe6e6;
+    border:1px solid #d20000;
+    color:#d20000;
 }
 label{
     display:block;
@@ -70,15 +29,16 @@ label{
     margin:3px 0;
 }
 table{
-    border:1px solid #5b6774;
+    border:1px solid #444;
     font-size:12px;
     border-collapse:collapse;
 }
 thead{
-    background:url('images/header.png');
+    background:#444;
+    border-bottom:1px solid #ff7e00;
     font-size:12px;
     text-align:center;
-    color:#f6f6f6;
+    color:#ebebeb;
     height:22px;
     line-height:22px;
 }
@@ -86,10 +46,10 @@ thead tr > td{
     padding:0 8px;
 }
 tbody tr:nth-child(even){
-    background-color:#e8eaec;
+    background-color:#ebebeb;
 }
 tbody tr:nth-child(odd){
-    background-color:#e1e4e7;
+    background-color:#e2e2e2;
 }
 tbody tr > td{
     padding:3px 8px;
@@ -111,4 +71,42 @@ h2{
     background:#fcfcfc;
     border:1px solid #eaeaea;
     border-radius:13px;
+}
+input[type="checkbox"]{
+    cursor:pointer;
+}
+input[type="text"],input[type="password"],input[type="url"]{
+    background:url('images/text.png') repeat-x;
+    height:13px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    padding:3px 4px;
+    margin:1px 0;
+    width:150px;
+}
+input[type="submit"]{
+    padding:4px 8px;
+    font-size:12px;
+    background:#444;
+    color:white;
+    border-radius:4px;
+    border:0;
+    border-bottom:2px solid #ff7e00;
+    cursor:pointer;
+    width:164px;
+}
+article{
+    word-wrap:break-word;
+    padding:10px;
+    text-align:justify;
+    font-size:12px;
+}
+h1 a, h2 a{
+    text-decoration:none;
+    color:#222;
+}
+hr{
+    margin:7px -10px;
+    border:0;
+    border-bottom:1px dashed #bbb;
 }
