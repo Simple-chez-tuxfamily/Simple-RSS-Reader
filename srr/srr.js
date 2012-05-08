@@ -20,6 +20,6 @@ function change_state(id,action){
         document.getElementById('i' + id).style.fontWeight = 'lighter';
     }
     else{
-        parent.frames['content'].document.getElementById('i' + id).style.fontWeight = 'bold';
+        parent.frames['top'].document.getElementById('i' + id).style.fontWeight = 'bold';
     }
 }

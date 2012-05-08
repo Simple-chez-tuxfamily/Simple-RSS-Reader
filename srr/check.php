@@ -26,12 +26,12 @@
                 if(empty($description)){
                     $description = $sqlite->quote($item->get_description());
                 }
-                // If there is already an article with the same description in the BDD, break();
-                /*$already_exist = $sqlite->query('SELECT count(id) AS nb_article FROM items WHERE description='.$description);
-                $already_exist = $already_exist->fetch();
-                if(intval($already_exist['nb_article']) > 0) break 1;*/
                 $date = strtotime($item->get_date());
+                $already_exist = $sqlite->query('SELECT count(id) AS nb_article FROM items WHERE description='.$description);
+                $already_exist = $already_exist->fetch();
+                $ddate = $time + 1200;
                 if($date < $ddate){ break; }
+                elseif(intval($already_exist['nb_article']) > 0){ break; } // If there is already an article with the same description in the BDD, break();
                 else{
                     $date = $sqlite->quote($date);
                     $sqlite->query('INSERT INTO items VALUES(' . $maxid . ',' . $response['id'] . ',' . $title . ',' . $permalink . ',' . $description . ',' . $date . ',\'0\',' . $_GET['id'] . ')');   
