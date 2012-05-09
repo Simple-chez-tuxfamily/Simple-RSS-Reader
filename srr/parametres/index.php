@@ -79,7 +79,7 @@
                     switch($_GET['page']){
                         case 'flux':
                             echo '<h2>Ajouter un flux</h2>
-                                <form action="feeds.php" method="get">
+                                <form action="parametres/feeds.php" method="get">
                                     <label for="url" style="margin-right:-40px;">Adresse du flux à ajouter:</label><input type="url" name="url" required /><br /><br />
                                     <label for="nothing" style="margin-right:-40px;"></label><input type="submit" value="Ajouter le flux" /></form>';                
                                 $query = $sqlite->query('SELECT id,url,title FROM feeds WHERE user_id="' . $_SESSION['id'] . '"');
@@ -92,7 +92,7 @@
                                     }
                                     echo ' flux</h2><table><thead><tr><td>Nom du flux</td><td>Action</td></tr></thead><tbody>';
                                     while($response = $query->fetch()){
-                                        echo '<tr><td><a href="' . $response['url'] . '">' . $response['title'] . '</a></td><td><a href="feeds.php?del=' . $response['id'] . '">Supprimer</a></td></tr>';
+                                        echo '<tr><td><a href="' . $response['url'] . '">' . $response['title'] . '</a></td><td><a href="parametres/feeds.php?del=' . $response['id'] . '">Supprimer</a></td></tr>';
                                     }
                                     echo '</tbody></table>';
                                 }
@@ -104,7 +104,7 @@
                                 while($contenu = readdir($repertoire)){
                                     if(!is_dir($contenu) && $contenu != $_SESSION['theme']){
                                         $nbrt++;
-                                        echo '<tr><td>' . $contenu . '</td><td><a href="user.php?theme=' . $contenu . '">Choisir</a></td></tr>';
+                                        echo '<tr><td>' . $contenu . '</td><td><a href="parametres/user.php?theme=' . $contenu . '">Choisir</a></td></tr>';
                                     }
                                 }
                                 if($nbrt == 0){
@@ -112,7 +112,7 @@
                                 }
                                 closedir($repertoire);
                                 echo '</tbody></table><br /><h2>Changer de mot de passe</h2>
-                                <form action="user.php" method="POST">
+                                <form action="parametres/user.php" method="POST">
                                     <label for="pwd1">Mot de passe actuel:</label><input type="password" name="pwd1" required /><br />
                                     <label for="pwd2">Nouveau mot de passe:</label><input type="password" name="pwd2" required /><br />
                                     <label for="pwd3">Nouveau mot de passe (encore):</label><input type="password" name="pwd3" required /><br /><br />
@@ -122,7 +122,7 @@
                         case 'utilisateurs':
                             if($_SESSION['admin'] == 1){
                                 echo '<br /><h2>Ajouter un utilisateur</h2>
-                                <form action="users.php" method="POST">
+                                <form action="parametres/users.php" method="POST">
                                     <label for="user">Nom d\'utilisateur:</label><input type="text" name="user" required /><br />
                                     <label for="pwd1">Mot de passe:</label><input type="password" name="pwd1" required /><br />
                                     <label for="pwd2">Mot de passe (encore):</label><input type="password" name="pwd2" required /><br /><br />
@@ -135,7 +135,7 @@
                                     <table><thead><tr><td>Nom d\'utilisateur</td><td>Action</td></tr></thead><tbody>';
                                     $query = $sqlite->query('SELECT id,username FROM users WHERE admin="0"');
                                     while($response = $query->fetch()){
-                                        echo '<tr><td>' . $response['username'] . '</td><td><a href="users.php?deluser=' . $response['id'] . '">Supprimer</a></td></tr>';
+                                        echo '<tr><td>' . $response['username'] . '</td><td><a href="parametres/users.php?deluser=' . $response['id'] . '">Supprimer</a></td></tr>';
                                     }
                                     echo '</tbody></table>';
                                 }
@@ -171,10 +171,10 @@
                             break;
                         case 'impexp':
                             echo '<h2>Importer un flux (fichier .opml ou .xml)</h2>
-                                <form action="import.php" method="post" enctype="multipart/form-data">
+                                <form action="parametres/import.php" method="post" enctype="multipart/form-data">
                                     Fichier à importer: <input type="file" name="file"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value="Importer" />
                                 <h2>Exporter les flux</h2>
-                                <p><a href="./export.php" title="Exporter les flux">Cliquez ici</a> pour exporter vos flux.</p>
+                                <p><a href="parametres/export.php" title="Exporter les flux">Cliquez ici</a> pour exporter vos flux.</p>
                                 </form>';
                             break;
                     }
