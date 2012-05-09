@@ -17,7 +17,7 @@
         if(isset($_COOKIE['is_connected'])){
             $cookie = explode(';',$_COOKIE['is_connected']);
             if(isset($cookie[0],$cookie[1])){
-                header('Location: connect.php?pseudo=' . $cookie[0] . '&password=' . $cookie[1]);
+                header('Location: connect.php?cookie=1&pseudo=' . $cookie[0] . '&password=' . $cookie[1]);
             }
         }
         elseif(!isset($_SESSION['uname'])){
