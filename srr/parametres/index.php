@@ -1,24 +1,13 @@
 <?php
-    session_start();       
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Paramètres</title>
-        <link type="text/css" rel="stylesheet" href="../themes/<?php echo $_SESSION['theme']; ?>/params.css" />
-        <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
-    </head>
-    <body>
-        <?php
+    $title = 'Paramètres';
             if(isset($_SESSION['uname'])){
-                $sqlite = new PDO('sqlite:../include/data.db');
                 echo '<div id="gauche"><ul>
-                    <li><a href="?page=flux">Mes flux suivis</a></li>
-                    <li><a href="?page=compte">Mon compte</a></li>
-                    <li><a href="?page=impexp">Importer/exporter mes flux</a></li>';
+                    <li><a href="?p=parametres&page=flux">Mes flux suivis</a></li>
+                    <li><a href="?p=parametres&page=compte">Mon compte</a></li>
+                    <li><a href="?p=parametres&page=impexp">Importer/exporter mes flux</a></li>';
                 if($_SESSION['admin'] == 1){
-                    echo '<li style="border-top:1px solid #bbb;margin-top:-1px;"><a href="?page=utilisateurs">Gestion des utilisateurs</a></li>
-                    <li><a href="?page=maj">Vérifier la présence d\'une mise à jour</a></li>';
+                    echo '<li style="border-top:1px solid #bbb;margin-top:-1px;"><a href="?p=parametres&page=utilisateurs">Gestion des utilisateurs</a></li>
+                    <li><a href="?p=parametres&page=maj">Vérifier la présence d\'une mise à jour</a></li>';
                 }    
                 echo '</ul></div><div id="droite"><article>';
                 if(!isset($_GET['page'])){
@@ -93,7 +82,6 @@
                                 <form action="feeds.php" method="get">
                                     <label for="url" style="margin-right:-40px;">Adresse du flux à ajouter:</label><input type="url" name="url" required /><br /><br />
                                     <label for="nothing" style="margin-right:-40px;"></label><input type="submit" value="Ajouter le flux" /></form>';                
-                                $sqlite = new PDO('sqlite:../include/data.db');
                                 $query = $sqlite->query('SELECT id,url,title FROM feeds WHERE user_id="' . $_SESSION['id'] . '"');
                                 $nbr = $sqlite->query('SELECT count(id) FROM feeds WHERE user_id="' . $_SESSION['id'] . '"');
                                 $nbr = $nbr->fetch();
@@ -111,7 +99,7 @@
                             break;
                         case 'compte':
                             echo '<h2>Thème</h2><table><thead><tr><td>Nom du thème</td><td>Action</td></tr></thead><tbody>';
-                                $repertoire = opendir('../themes');
+                                $repertoire = opendir('themes');
                                 $nbrt = 0;
                                 while($contenu = readdir($repertoire)){
                                     if(!is_dir($contenu) && $contenu != $_SESSION['theme']){
@@ -161,7 +149,7 @@
                                 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
                                 $version = 1.5; // Numéro de version
                                 $flux = 'http://fulltextrssfeed.com/github.com/quent1-fr/Simple-RSS-Reader/commits/master.atom'; // Flux Atom de la branche master (ne marche pas avec l'adresse directe)
-                                include '../include/simplepie.inc';
+                                include 'include/simplepie.inc';
                                 $simple = new SimplePie();
                                 $simple->enable_cache(false);
                                 $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT.' (Simple RSS Reader - Update)');

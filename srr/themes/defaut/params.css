@@ -7,6 +7,34 @@ html,body{
     background:#fbfbfb;
     font-family:sans-serif;
 }
+header{
+    height:34px;
+    width:100%;
+    line-height:34px;
+    background:#444;
+    z-index:2;
+    border-bottom:3px solid #ff7e00;
+}
+header h1{
+    padding-left:15px;
+    color:#eee;
+    font-size:16px;
+    font-weight:lighter;
+}
+header ul li{
+    float:right;
+    margin-top:-33px;
+    font-size:12px;
+    padding-right:20px;
+    display:inline;
+}
+header ul li a{
+    color:#eee;
+    text-decoration:none;
+}
+header ul li a:hover{
+    color:#f1b880;
+}
 .message{
     margin:5px 0;
     font-size:12px;
@@ -55,6 +83,7 @@ label{
     position:absolute;
     right:0;
     top:0;
+    margin-top:37px;
     height:100%;
 }
 h1{
