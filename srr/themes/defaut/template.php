@@ -5,6 +5,7 @@
         <link type="text/css" rel="stylesheet" href="themes/defaut/<?php echo $page; ?>.css" />
         <link rel="shortcut icon" type="image/png" href="themes/defaut/images/favicon.png" />
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
+        <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
         <script type="text/javascript" src="themes/defaut/template.js"></script>
     </head>
     <body>

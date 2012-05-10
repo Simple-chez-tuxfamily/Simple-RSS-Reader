@@ -6,7 +6,7 @@ function hide_msg(){
 function resize_frame(){
     var header_h = document.getElementById('header').offsetHeight;
     if(window.innerWidth < 500){
-       alert('Votre écran est trop petit!');
+       window.location.href = 'index.php?p=index&mobile';
     }
     document.getElementById('gauche').style.height = window.innerHeight - header_h + "px";
     document.getElementById('droite').style.height = window.innerHeight - header_h + "px";
@@ -20,7 +20,8 @@ function change_state(id,action){
         document.getElementById('fnl').innerHTML = 'Flux non lus (' + i + ')';
     }
     else{
-        // Ici i ne fonctionne pas...
+        window.frames.top.i = window.frames.top.i + 1;
+        parent.frames['top'].document.getElementById('fnl').innerHTML = 'Flux non lus (' + window.frames.top.i + ')';
         parent.frames['top'].document.getElementById('i' + id).style.fontWeight = 'bold';
     }
 }

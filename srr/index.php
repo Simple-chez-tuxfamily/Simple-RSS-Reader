@@ -6,6 +6,9 @@
     elseif(isset($_GET['mobile'])){
         $_SESSION['theme'] = 'mobile';
     }
+    elseif(isset($_GET['desktop'])){
+        $_SESSION['theme'] = 'defaut';
+    }
     ob_start();
         $sqlite = new PDO('sqlite:include/data.db');
         $result = $sqlite->query('SELECT count(id) FROM items WHERE read="0" AND user_id="' . $_SESSION['id'] . '"');
