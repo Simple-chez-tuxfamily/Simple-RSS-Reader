@@ -16,6 +16,7 @@ function resize_frame(){
 function change_state(id,action){
     if(action == 'read'){
         i = i - 1;
+        if(i < 0){ i = 0; }
         document.getElementById('i' + id).style.fontWeight = 'lighter';
         document.getElementById('fnl').innerHTML = 'Flux non lus (' + i + ')';
     }

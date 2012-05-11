@@ -14,6 +14,7 @@ function resize_frame(){
 /* Fonction pour marquer un item comme lu/non lu */
 function change_state(id,action){
     if(action == 'read'){
+        if(i < 0){ i = 0; }
         document.getElementById('gauche').style.display = 'none';
         document.getElementById('droite').style.display = 'block';
     }
