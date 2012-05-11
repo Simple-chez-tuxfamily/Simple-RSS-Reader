@@ -10,6 +10,7 @@
         <title>Connexion - Simple RSS Reader</title>
         <link type="text/css" rel="stylesheet" href="../themes/defaut/params.css" />
         <link rel="shortcut icon" type="image/png" href="../favicon.png" />
+        <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
     </head>
     <body>

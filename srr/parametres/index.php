@@ -102,7 +102,7 @@
                                 $repertoire = opendir('themes');
                                 $nbrt = 0;
                                 while($contenu = readdir($repertoire)){
-                                    if(!is_dir($contenu) && $contenu != $_SESSION['theme']){
+                                    if(!is_dir($contenu) && $contenu != $_SESSION['theme'] && $contenu != 'mobile'){
                                         $nbrt++;
                                         echo '<tr><td>' . $contenu . '</td><td><a href="parametres/user.php?theme=' . $contenu . '">Choisir</a></td></tr>';
                                     }
