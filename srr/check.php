@@ -21,7 +21,7 @@
                 $already_exist = $sqlite->query('SELECT count(id) AS nb_article FROM items WHERE permalink=' . $permalink);
                 $already_exist = $already_exist->fetch();
                 if(intval($already_exist['nb_article']) > 0){ break; }
-                $title = $sqlite->quote($item->get_title());
+                $title = $sqlite->quote(htmlentities($item->get_title()));
                 $description = $sqlite->quote($item->get_content());
                 if(empty($description)){ $description = $sqlite->quote($item->get_description()); }
                 if($date == 0){ $date = $time; }

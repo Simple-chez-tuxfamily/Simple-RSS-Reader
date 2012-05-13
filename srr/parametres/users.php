@@ -8,7 +8,7 @@
             $maxid = $sqlite->query('SELECT max(id) FROM users');
             $maxid = $maxid->fetch();
             $maxid = $maxid[0] + 1;
-            $user = $sqlite->quote($_POST['user']);
+            $user = $sqlite->quote(htmlentities($_POST['user']));
             $pass = $sqlite->quote(sha1($_POST['user'] . $_POST['pwd1'] . $_POST['user']));
             $sqlite->query('INSERT INTO users VALUES(' . $maxid . ',' . $user . ',' . $pass . ',"0","defaut")');   
             header('Location: ../index.php?p=parametres&page=utilisateurs&msg=7');

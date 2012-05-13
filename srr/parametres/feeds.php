@@ -15,7 +15,7 @@
             $maxid = $sqlite->query('SELECT max(id) FROM feeds');
             $maxid = $maxid->fetch();
             $maxid = $maxid[0] + 1;
-            $sqlite->query('INSERT INTO feeds VALUES(' . $maxid . ',' . $sqlite->quote($_GET['title']) . ',' . $sqlite->quote($_GET['url']) . ',' . $sqlite->quote(time()) . ',"' . $_SESSION['id'] . '")');   
+            $sqlite->query('INSERT INTO feeds VALUES(' . $maxid . ',' . $sqlite->quote(htmlentities($_GET['title'])) . ',' . $sqlite->quote($_GET['url']) . ',' . $sqlite->quote(time()) . ',"' . $_SESSION['id'] . '")');   
             header('Location: ../index.php?p=parametres&page=flux&msg=9');
         }
         else{
