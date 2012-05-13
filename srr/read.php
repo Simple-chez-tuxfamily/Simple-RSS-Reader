@@ -6,9 +6,6 @@
             $response = $query->fetch();
             if(!empty($response['title'])){
                 $title = $response['title'];
-                $response['description'] = preg_replace('/<script\b/i', '<div class="xss">', $response['description']);
-                $response['description'] = preg_replace('/<\/script>\b/i', '</div>', $response['description']);
-                $response['description'] = preg_replace('/on([a-z]+)/i', '', $response['description']);
                 echo '<article><h1><a href="' . $response['permalink'] . '">' . $response['title'] . '</a></h1><span id="infos">Posté le ' . date('d/m/Y à G\hi\m',$response['date']) . '. <a onclick="change_state(\'' . $response['id'] . '\',\'unread\')" style="color:#888;text-decoration:none;font-weight:bold;" href="?p=index&read=' . $_GET['read'] . '&unread&nobar">Marquer comme non lu</a></span><hr />' . $response['description'] . '</article>';
                 if(!isset($_GET['unread'])){
                     $sqlite->query('UPDATE items SET read=\'1\' WHERE id=' . $sqlite->quote($_GET['read']) . ' AND user_id="' . $_SESSION['id'] . '"');
