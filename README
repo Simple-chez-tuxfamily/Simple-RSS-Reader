@@ -1,7 +1,9 @@
-* INSTALLATION * 
-    Avant d'utiliser Simple RSS Reader, vous devez:
-        - éditer le fichier config.php (tout est expliqué dans le fichier)
-        - ajouter des flux dans data.db (par l'intermédiaire de SQLite Manager) dans la table feeds (title = le nom du flux; url = l'adresse du flux RSS/atom; last_check = 0)
+ #####                                   ######   #####   #####     ######                                     
+#     # # #    # #####  #      ######    #     # #     # #     #    #     # ######   ##   #####  ###### #####  
+#       # ##  ## #    # #      #         #     # #       #          #     # #       #  #  #    # #      #    # 
+ #####  # # ## # #    # #      #####     ######   #####   #####     ######  #####  #    # #    # #####  #    # 
+      # # #    # #####  #      #         #   #         #       #    #   #   #      ###### #    # #      #####  
+#     # # #    # #      #      #         #    #  #     # #     #    #    #  #      #    # #    # #      #   #  
+ #####  # #    # #      ###### ######    #     #  #####   #####     #     # ###### #    # #####  ###### #    # 
 
-* UTILISATION *
-    Pour mettre à jour les flux, il vous suffit d'appeler la page check.php
+Toute la documentation se trouve sur le Wiki (disponible Ã  cette adresse: https://github.com/quent1-fr/Simple-RSS-Reader/wiki/_pages).

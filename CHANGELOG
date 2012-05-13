@@ -1,3 +1,23 @@
+* 13 mai 2012 *
+	-> Modification de l'user-agent
+	-> Ajout du support de plusieurs utilisateurs avec différents droits
+	-> Création d'un script d'installation
+	-> Création d'un thème digne de ce nom
+	-> Détection de la disponibilité d'une mise à jour
+	-> Affichage des messages d'erreur/de confirmation dans les paramètres
+	-> Anti-doublons dans check.php
+	-> Ajout de la possibilité de changer de mot de passe
+	-> Ajout de l'import/export au format OPML
+	-> Création d'une page pour la gestion des thèmes
+	-> Les nouveaux flus ne chargent plus les anciens items
+	-> L'accès à la base de données est maintenant interdite
+	-> Un message d'erreur est affiché si JavaScript n'est pas activé
+	-> Un système de templates a été créé
+	-> Le nombre de flux non lu est maintenant dynamique
+	-> Usn thème a été créé pour les écrans dont la largeur est inférieure à 500 pixels
+	-> L'aspect "sécurité" a été abordé
+	-> Le lecteur a été testé (version 1.5)
+
 * 7 avril 2012 *
 	-> Nettoyage du code 
 	-> Correction du bug de l'iframe 

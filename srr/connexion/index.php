@@ -1,4 +1,7 @@
 <?php
+    if(file_exists('../installation/install.php')){
+        header('Location: ../installation/index.php');
+    }
     session_start();
 ?>
 <!DOCTYPE html>
@@ -7,6 +10,7 @@
         <title>Connexion - Simple RSS Reader</title>
         <link type="text/css" rel="stylesheet" href="../themes/defaut/params.css" />
         <link rel="shortcut icon" type="image/png" href="../favicon.png" />
+        <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
     </head>
     <body>
@@ -14,10 +18,10 @@
         if(isset($_COOKIE['is_connected'])){
             $cookie = explode(';',$_COOKIE['is_connected']);
             if(isset($cookie[0],$cookie[1])){
-                header('Location: connect.php?pseudo=' . $cookie[0] . '&password=' . $cookie[1]);
+                header('Location: connect.php?cookie=1&pseudo=' . $cookie[0] . '&password=' . $cookie[1]);
             }
         }
-        if(!isset($_SESSION['uname'])){
+        elseif(!isset($_SESSION['uname'])){
             echo '<form id="connect" action="connect.php" method="get">
                 <h1>Connexion</h1>
                 <label for="pseudo">Nom d\'utilisateur:</label><br /><input type="text" name="pseudo" required /><br />
