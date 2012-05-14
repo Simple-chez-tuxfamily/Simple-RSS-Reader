@@ -1,6 +1,9 @@
 <?php
     session_start();
-    if(!isset($_SESSION['uname'])){
+    if(file_exists('../installation/install.php')){
+        header('Location: ../installation/index.php');
+    }
+    elseif(!isset($_SESSION['uname'])){
         header('Location: connexion/');
     }
     elseif(isset($_GET['mobile'])){
