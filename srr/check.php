@@ -31,7 +31,6 @@
                 $maxid = $maxid[0] + 1;
                 $description = preg_replace('/<script\b/i', '<div class="xss">', $description);
                 $description = preg_replace('/<\/script>\b/i', '</div>', $description);
-                $description = preg_replace('/on([a-z]+)/i', '', $description);
                 $sqlite->query('INSERT INTO items VALUES(' . $maxid . ',' . $response['id'] . ',' . $title . ',' . $permalink . ',' . $description . ',' . $date . ',\'0\',"' . $_GET['id'] . '")');
             }
             $sqlite->query('UPDATE feeds SET last_check=' . $sqlite->quote($time) . ' WHERE id=' . $sqlite->quote($response['id']));
