@@ -1,7 +1,7 @@
 <?php
     session_start();
-    if(file_exists('../installation/install.php')){
-        header('Location: ../installation/index.php');
+    if(file_exists('installation/install.php')){
+        header('Location: installation/index.php');
     }
     elseif(!isset($_SESSION['uname'])){
         header('Location: connexion/');
