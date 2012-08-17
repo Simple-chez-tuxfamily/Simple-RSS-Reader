@@ -29,7 +29,7 @@
                     echo '<li><h2><a target="apercu" id="i' . $response['id'] . '" onclick="change_state(\'' . $response['id'] . '\',\'read\')" href="?p=index&read=' . $response['id'] . '&nobar">' . $response['title'] . '</a></h2>' . $name[$response['feed_id']] . '</li>';
                 }
             }
-            echo '<li style="border-top:1px solid #bbb;margin-top:-1px;"><h2><a href="check.php?id=' . $_SESSION['id'] . '" target="_top">Lancer une recherche</a></h2>Cliquez ici pour lancer une recherche</li></ul></div><div id="droite"><iframe width="100%" height="100%" scrolling="auto" frameborder="0" src="read.php?read=-1&nobar" id="apercu" name="apercu"></iframe></div>';
+            echo '<li style="border-top:1px solid #bbb;margin-top:-1px;"><h2><a onclick="show_message(\'Merci de patienter\',\'Mise à jour des flux en cours... Veuillez patienter\', \'themes/' . $_SESSION['theme'] . '/images/loading.gif\')" href="check.php?id=' . $_SESSION['id'] . '" target="_top">Lancer une recherche</a></h2>Cliquez ici pour lancer une recherche</li></ul></div><div id="droite"><iframe width="100%" height="100%" scrolling="auto" frameborder="0" src="read.php?read=-1&nobar" id="apercu" name="apercu"></iframe></div>';
         }
     }
 ?>

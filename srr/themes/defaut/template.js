@@ -1,6 +1,16 @@
 /* Fonction qui cache l'erreur "Javascript n'est pas activé" */
 function hide_msg(){
-    document.getElementById('jserror').style.display = 'none';
+    document.getElementById('das_big_message').style.display = 'none';
+}
+/* Fonction qui affiche un message à l'écran */
+function show_message(title, message, image){
+    if(!image){ /* Si il n'y a pas d'image */
+        document.getElementById('das_big_message').innerHTML = '<div id="message_content"><strong>' + title + '</strong><p>' + message + '</p></div>';
+    }
+    else{
+        document.getElementById('das_big_message').innerHTML = '<div id="message_content"><strong>' + title + '</strong><p>' + message + '</p><img src="' + image + '" /></div>';
+    }
+    document.getElementById('das_big_message').style.display = 'block';
 }
 /* Fonction pour redimensionner l'iframe principale (redimensionne toutes les 500ms */
 function resize_frame(){
