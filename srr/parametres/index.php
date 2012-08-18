@@ -146,18 +146,13 @@
                             break;
                         case 'maj':
                             if($_SESSION['admin'] == 1){
-                                error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-                                $version = 1.5; // Numéro de version
+                                $version = 1.6; // Numéro de version
                                 $flux = 'http://fulltextrssfeed.com/github.com/quent1-fr/Simple-RSS-Reader/commits/master.atom'; // Flux Atom de la branche master (ne marche pas avec l'adresse directe)
-                                include 'include/simplepie.inc';
-                                $simple = new SimplePie();
-                                $simple->enable_cache(false);
-                                $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT.' (Simple RSS Reader - Update)');
-                                $simple->set_feed_url($flux);
-                                $simple->init();
-                                $simple->handle_content_type();
-                                $update = $simple->get_items();
-                                $actual = str_replace('Version ','',$update[0]->get_title());
+                                include 'include/syndexport.php';
+                                $feed = file_get_contents($flux);
+                                $synd = new SyndExport($feed);
+                                $items = $synd->exportItems();
+                                $actual = str_replace('Version ','',$items[0]['title']);
                                 if($dispo > $version){
                                     echo '<p>Une mise à jour est disponible. <a href="https://github.com/quent1-fr/Simple-RSS-Reader/zipball/master">Cliquez ici</a> pour la télécharger</p>';
                                 }

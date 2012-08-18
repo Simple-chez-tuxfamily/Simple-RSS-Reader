@@ -1,7 +1,5 @@
 <?php
 session_start();
-ini_set('display_errors','On');
-error_reporting(0);
 
 /* XML File */
 $xml = file_get_contents($_FILES['file']['tmp_name']);
