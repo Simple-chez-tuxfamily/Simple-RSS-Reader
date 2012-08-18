@@ -147,18 +147,10 @@
                         case 'maj':
                             if($_SESSION['admin'] == 1){
                                 $version = 1.6; // Numéro de version
-                                $flux = 'http://fulltextrssfeed.com/github.com/quent1-fr/Simple-RSS-Reader/commits/master.atom'; // Flux Atom de la branche master (ne marche pas avec l'adresse directe)
-                                include 'include/syndexport.php';
-                                $feed = file_get_contents($flux);
-                                $synd = new SyndExport($feed);
-                                $items = $synd->exportItems();
-                                $actual = str_replace('Version ','',$items[0]['title']);
-                                if($dispo > $version){
-                                    echo '<p>Une mise à jour est disponible. <a href="https://github.com/quent1-fr/Simple-RSS-Reader/zipball/master">Cliquez ici</a> pour la télécharger</p>';
-                                }
-                                else{
-                                    echo '<p>Votre version de Simple RSS Reader est déjà la plus récente.</p>';
-                                }
+                                $actuel = 'http://quent1-fr.github.com/Simple-RSS-Reader/version.srr';
+                                if($actuel > $version) echo '<p>Une mise à jour est disponible. <a href="https://github.com/quent1-fr/Simple-RSS-Reader/zipball/master">Cliquez ici</a> pour la télécharger</p>';
+                                elseif($actuel < $version) echo '<p>Votre version de Simple RSS Reader est déjà la plus récente. Nous avons détecté que vous utilisez une version de développement. Faites bien attention à ce que vous faites!</p>';
+                                else echo '<p>Votre version de Simple RSS Reader est déjà la plus récente.</p>';
                             }
                             else{
                                 echo '<p>Vous n\'êtes pas autorisé à accéder à cette page!</p>';
