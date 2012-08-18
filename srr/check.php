@@ -9,7 +9,7 @@
         if($time > $response['last_check'] + 1200){
             $feed = file_get_contents($response['url']);
             $synd = new SyndExport($feed);
-            $items = $synd->exportItems();
+            $items = $synd->exportItems(-1);
             foreach($items as $item){
                 $date = strtotime($item['date']);
                 
