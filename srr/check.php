@@ -1,14 +1,17 @@
 <?php
     if(!isset($_GET['id']) or !is_numeric($_GET['id'])){ die('Erreur: aucun id n\'a été spécifié!'); }
     set_time_limit(0);
+    error_reporting(0);
     include 'include/syndexport.php';
     $sqlite = new PDO('sqlite:include/data.db');
     $query = $sqlite->query('SELECT id,url,last_check FROM feeds WHERE user_id="' . $_GET['id'] . '"');
     $time = time();
     while($response = $query->fetch()){
         if($time > $response['last_check'] + 1200){
-            $feed = file_get_contents($response['url']);
+            $feed = @file_get_contents($response['url']);
+            if(!empty($feed)) break;
             $synd = new SyndExport($feed);
+            if($synd->returnType() === false) break;
             $items = $synd->exportItems(-1);
             foreach($items as $item){
                 $date = strtotime($item['date']);
