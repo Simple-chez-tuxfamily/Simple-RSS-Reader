@@ -9,7 +9,7 @@
     while($response = $query->fetch()){
         if($time > $response['last_check'] + 1200){
             $feed = @file_get_contents($response['url']);
-            if(!empty($feed)) break;
+            if(empty($feed)) break;
             $synd = new SyndExport($feed);
             if($synd->returnType() === false) break;
             $items = $synd->exportItems(-1);
