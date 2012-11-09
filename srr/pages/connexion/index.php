@@ -5,8 +5,8 @@
 <html>
     <head>
         <title>Connexion - Simple RSS Reader</title>
-        <link type="text/css" rel="stylesheet" href="../themes/defaut/params.css" />
-        <link rel="shortcut icon" type="image/png" href="../favicon.png" />
+        <link type="text/css" rel="stylesheet" href="connexion.css" />
+        <link rel="shortcut icon" type="image/png" href="../themes/defaut/images/favicon.png" />
         <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
     </head>
@@ -19,11 +19,11 @@
             }
         }
         elseif(!isset($_SESSION['uname'])){
-            echo '<form id="connect" action="connect.php" method="get">
-                <h1>Connexion</h1>
-                <label for="pseudo">Nom d\'utilisateur:</label><br /><input type="text" name="pseudo" required /><br />
-                <label for="password">Mot de passe:</label><br /><input type="password" name="password" required /><br /><br />
-                <input type="checkbox" name="keep" /> <label for="keep">Garder la connexion active</label><br /><br />
+            echo '<header>Connexion - Simple RSS Reader</header>
+            <form id="connect" action="connect.php" method="get">
+                <input type="text" name="pseudo" required  placeholder="Nom d\'utilisateur..." />
+                <input type="password" name="password" required placeholder="Mot de passe..." />
+                <div id="cbox">Rester connecté pendant un mois <input type="checkbox" name="keep" value="" /></div>
                 <input type="submit" value="Connexion" />
             </form>';
         }

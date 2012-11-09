@@ -18,11 +18,11 @@
         $result = $result->fetch();
         $nonlu = $result[0];
         if(!isset($_GET['p']) or $_GET['p'] == 'index'){
-            $page = 'style';
+            $page = 'flux';
             include 'read.php';
         }
         elseif($_GET['p'] == 'parametres'){
-            $page = 'params';
+            $page = 'parametres';
             include 'parametres/index.php';
         }
         else{
@@ -30,5 +30,5 @@
         }
         $content = ob_get_contents();
     ob_end_clean();
-    include './themes/' . $_SESSION['theme'] . '/template.php';
+    include './themes/' . $_SESSION['theme'] . '/theme.php';
 ?>

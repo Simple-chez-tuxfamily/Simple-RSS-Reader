@@ -1,22 +1,17 @@
-*{
-    margin:0;
-    padding:0;
-}
-html,body{
-    min-height:416px;
-    background:#fbfbfb;
-    font-family:sans-serif;
+body{
+    margin: 0;
+    padding: 0;
+    background: #fafafa;  
+    font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
+    font-size: 15px;
 }
 header{
-    height:34px;
-    width:100%;
-    line-height:35px;
-    top:0;
-    position:fixed;
-    border-bottom:2px solid #29536f;
-    background:#5a8bab;
-    text-align:center;
-    font-size:15px;
+    background: #222;
+    height: 30px;
+    box-shadow: 0 0 10px #888;
+    color: #eee;
+    text-align: center;
+    line-height: 29px;
 }
 header a{
     color:#fdfdfd;
@@ -28,6 +23,10 @@ header a{
     background:#fbfbfb;
     overflow:auto;
     word-wrap:break-word;
+}
+
+img{
+    max-width: 90%;
 }
 #gauche ul li{
     min-height:35px;

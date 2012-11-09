@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>RSS Reader</title>
+        <title>Simple RSS Reader</title>
         <link type="text/css" rel="stylesheet" href="themes/mobile/style.css" />
         <link rel="shortcut icon" type="image/png" href="themes/mobile/images/favicon.png" />
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
@@ -10,15 +10,15 @@
         <script type="text/javascript" src="themes/mobile/template.js"></script>
     </head>
     <body onload="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
-        <?php
-            if(!isset($_GET['nobar'])){
-                echo '<h1 id="jserror" style="color:#aa0000;margin:5px;">Erreur: Javascript n\'est pas activé!</h1><header id="header"><a href="index.php?p=index">Simple RSS Reader (' . $nonlu . ')</a></header>';
-            }
-            echo $content;
-        ?>
-        <script type="text/javascript">
-            resize_frame();
-            hide_msg();
-        </script>
+        <div id="das_big_message">
+                <div id="message_content">
+                    <strong>Erreur</strong>
+                    <p>Javascript semble être désactivé. Pour pouvoir utiliser Simple RSS Reader, vous devez impérativement activer Javascript dans les préférences de votre navigateur.</p>
+                </div>
+            </div>
+            <header>Simple RSS Reader</header>
+            <div id="content"><?php echo $content; ?></div>
+            <script type="text/javascript" src="themes/defaut/template.js"></script>
+            <script>hide_msg();is_mobile();</script>
     </body>
 </html>
