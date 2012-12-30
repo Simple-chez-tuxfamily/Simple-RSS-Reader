@@ -1,3 +1,15 @@
+* 31 décembre 2012 *
+	-> Publication de la version 2.0
+	-> Le titre s'affiche maintenant correctement
+	-> Les messages d'erreur/de confirmation s'affichent grâce à JavaScript
+	-> Ajout d'un loader
+	-> Nouveau thème
+	-> Réorganisation partielle des dossiers
+	-> Mise à jour des flux via JavaScript
+	-> Suppression de toutes les iframes
+	-> Utilisation de l'Ajax
+	-> Nouvel installateur
+
 * 13 mai 2012 *
 	-> Modification de l'user-agent
 	-> Ajout du support de plusieurs utilisateurs avec différents droits

@@ -1,12 +1,16 @@
 <?php
+    error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
     session_start();
     $sqlite = new PDO('sqlite:../include/data.db');
     if(isset($_GET['url']) && !empty($_GET['url'])){
-        include '../include/syndexport.php';
-        $feed = file_get_contents($_GET['url']);
-        $synd = new SyndExport($feed);
-        $infos = $synd->exportInfos();
-        $_GET['title'] = $infos['title'];
+        include '../include/simplepie.inc';
+        $simple = new SimplePie();
+        $simple->enable_cache(false);
+        $simple->set_useragent('Mozilla/4.0 '.SIMPLEPIE_USERAGENT.' (with Simple RSS Reader)');
+        $simple->set_feed_url($_GET['url']);
+        $simple->init();
+        $simple->handle_content_type();
+        $_GET['title'] = $simple->get_title();
         if(!empty($_GET['title'])){
             $maxid = $sqlite->query('SELECT max(id) FROM feeds');
             $maxid = $maxid->fetch();
