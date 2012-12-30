@@ -1,0 +1,7 @@
+ -> Faire un thème digne de ce nom pour les paramètres
+ -> Ajouter la possibilité de faire une demande de nouveau mot de passe
+ -> Anti-CSRF
+ -> Thème avec responsive design
+ -> Revoir la structure interne (dossiers + fichiers)
+ -> Tester si l'écriture dans la base fonctionne (à l'installation)
+ -> Ajout d'un anti tracker

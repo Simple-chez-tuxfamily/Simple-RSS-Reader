@@ -1,0 +1,255 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #fafafa;  
+    font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
+    font-size: 15px;
+}
+header{
+    background: #222;
+    height: 33px;
+    color: #eee;
+    text-align: center;
+    line-height: 33px;
+    border-bottom: 3px solid #8CB23A;
+}
+header h1{
+    margin: 0;
+    padding: 0;
+    color: #eee;
+    font-size: 16px;
+    font-weight: normal;
+}
+header ul{
+    list-style: none;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+header ul li{   
+    display: inline;
+    padding: 5px;
+}
+header #header_gauche{
+    left: 10px;
+}
+header #header_droite{
+    right: 10px;
+    display: inline;
+}
+header a{
+    color: #bbb;
+    font-size: 13px;
+    text-decoration: none;
+}
+header a:hover{
+    color: #8CB23A;
+}
+
+/*
+ * Liste des items
+*/
+#items{
+    margin: 0;
+    padding: 0;
+    background: #f3f3f3;  
+    width: 25%;
+    float: left;
+    border-right: 1px solid #ddd;
+    overflow: auto;
+}
+#items ul{
+    margin: 0;
+    padding: 0;
+}
+#items ul li{
+    border-bottom: 1px solid #e5e5e5;
+    color: #aaa;
+    font-size: 12px;
+    list-style: none outside none;
+    min-height: 35px;
+    padding: 5px 15px;
+}
+#items ul li h2{
+    margin: 0;
+    font-size: 13px;
+    padding: 2px 0px 3px 0;
+}
+#items ul li h2 a{
+    color: #222;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+#items ul li h2 a:hover{
+    text-shadow: 1px 1px #ddd;
+}
+/*
+ * Item seul
+*/
+article{
+    width: 75%;
+    float: right;
+    overflow: auto;
+    margin-left: -1px;
+    display: block;
+    font-size: 12px;
+}
+article .article_content h1{
+    margin: 0 -2px;
+    padding: 0;
+    font-size: 20px;
+    text-shadow: 1px 1px #ddd;
+}
+article .article_content h1 a, article .article_content h1 a:hover{
+    color: #222;
+    text-decoration: none;
+}
+article .article_content #infos{
+    margin: 0 -2px;
+    padding: 0;
+    font-size: 11px;
+    font-style: italic;
+}
+article .article_content hr{
+    margin: 5px -10px;
+    border: 0;
+    border-bottom: 1px dashed #ddd;
+}
+article .article_content{
+    margin: 5px 10px;
+}
+article .article_content img{
+    max-width: 100%;
+}
+article .article_content a{
+    color: #111;
+    text-decoration: underline;
+}
+article .article_content a:hover{
+    cursor: pointer;
+    color: #668225;
+}
+/*
+ * Menu des paramètres
+*/
+
+
+#parametres{
+    margin: 0;
+    padding: 0;
+    background: #303030;
+    width: 25%;
+    float: left;
+    box-shadow: 0 0 5px inset #111;
+}
+#parametres ul{
+    margin: 0;
+    padding: 0;
+}
+#parametres ul li{
+    font-size: 13px;
+    display: block;
+}
+#parametres ul li a{
+    display: block;
+    list-style: none outside none;
+    height: 25px;
+    line-height: 23px;
+    padding: 5px 15px;
+    color: #ddd;
+    text-decoration: none;
+}
+#parametres ul li a:hover{
+    background: #8CB23A;
+    box-shadow: 0 0 5px inset #647C2B;
+    color: #333;
+}
+/*
+ * Formulaires
+*/
+form{
+    width: 250px;
+    margin: 15px auto;
+}
+form input{
+    margin: 0;
+}
+form input[type="text"], form input[type="password"], form input[type="url"], form input[type="file"]{
+    background: #fefefe;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: -1px;
+    width: 250px;
+    display: block;
+}
+form input[type="submit"]{
+    background: #A1C450;
+    padding: 8px;
+    border: 1px solid #8CB23A;
+    margin-top: -1px;
+    width: 272px;
+    color: #fff;
+    cursor: pointer;
+}
+form input[type="text"]:focus, form input[type="password"]:focus,  form input[type="url"]:focus, form input[type="file"]:focus{
+    border: 1px solid #8CB23A;
+}
+form label{
+    color: #999;
+    font-size: 13px;
+}
+form input[type="checkbox"]{
+    margin-right: 5px;
+}
+/*
+ * Design des messages d'erreur et de confirmation (<p class="message [type]">[message]</p>)
+*/
+#notification{
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    box-shadow: 0 0 15px #000;
+    z-index: 20;
+    font-size: 13px;
+    padding: 0 15px;
+    text-shadow: 1px 1px 2px #eee;
+    font-weight: bold;
+    left: 0;
+    top: 33px;
+}
+/*
+ * Gif de chargement
+*/
+#chargement{
+    margin-top: 3px;
+    margin-bottom: -3px;
+    visibility: hidden;
+}
+a{
+    cursor: pointer;
+}
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #222;
+}
+table thead td{
+    background: #222;
+    padding: 3px 10px;
+    color: #eee;
+    font-weight: bold;
+    font-size: 13px;
+}
+table tbody td{
+    font-size: 11px;
+    padding: 3px 10px;
+}
+table tbody tr:nth-child(odd){
+    background: #ddd;
+}
+table tbody tr:nth-child(even){
+    background: #eee;
+}
