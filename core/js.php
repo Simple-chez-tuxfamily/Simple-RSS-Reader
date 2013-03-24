@@ -31,8 +31,5 @@
     $javascript = str_replace($mauvaises_choses, '', $javascript);
     
     header('Content-type: text/javascript');
-    header('Expires: ' + gmdate('D, d M Y H:i:s', time() - 1) . ' GMT'); // On ne cache pas (à cause du token)
-    header('Pragma: no-cache'); // On ne cache pas (à cause du token)
-    header('Cache-Control: max-age=-1');// On ne cache pas (à cause du token)
     echo str_replace('[PHP_ADD_TOKEN]', $_SESSION['token'], $javascript);
 ?>

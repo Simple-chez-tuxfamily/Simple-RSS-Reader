@@ -21,8 +21,5 @@
     $css = str_replace(';}', '}', $css);
     
     header('Content-type: text/css');
-    header('Expires: ' + gmdate('D, d M Y H:i:s', time() + 604800) . ' GMT'); // On cache pour une semaine
-    header('Pragma: cache'); // On cache pour une semaine
-    header('Cache-Control: max-age=604800'); // On cache pour une semaine
     echo $css;
 ?>
