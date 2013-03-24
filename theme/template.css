@@ -1,0 +1,358 @@
+::selection{
+    color:#fff;
+    background:#649115
+}
+*::-moz-selection{
+    color:#fff;
+    background:#649115
+}
+html, body{
+    overflow: hidden;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: #fcfcfc;  
+    font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
+    font-size: 15px;
+}
+header{
+    background: #222;
+    height: 33px;
+    color: #eee;
+    text-align: center;
+    line-height: 33px;
+    border-bottom: 3px solid #8CB23A;
+}
+header h1{
+    margin: 0;
+    padding: 0;
+    color: #eee;
+    font-size: 16px;
+    font-weight: normal;
+}
+header ul{
+    list-style: none;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+header ul li{   
+    display: inline;
+    padding: 5px;
+}
+header #header_gauche{
+    left: 10px;
+}
+header #header_droite{
+    right: 10px;
+    display: inline;
+}
+header a{
+    color: #bbb;
+    font-size: 13px;
+    text-decoration: none;
+}
+header a:hover{
+    color: #8CB23A;
+}
+
+/*
+ * Liste des items
+*/
+nav{
+    margin: 0;
+    padding: 0;
+    background: #303030;
+    width: 25%;
+    float: left;
+    overflow: auto;
+    word-wrap: break-word;
+    box-shadow: inset 0px 0px 5px #111111;
+}
+nav ul{
+    margin: 0;
+    padding: 0;
+}
+#items ul li{
+    border-bottom: 1px solid #252525;
+    font-size: 12px;
+    list-style: none;
+    min-height: 35px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+#items ul li h2{
+    margin: 0;
+    font-size: 13px;
+    padding: 2px 0px 3px 0;
+    font-weight: bold;
+}
+#items ul li.nonlu:hover{
+    background: #8CB23A;
+    box-shadow: inset 0px 0px 15px #647C2B;
+    color: #333333;
+}
+#items ul li.nonlu:hover > h2{
+    text-shadow: 1px 1px #333;
+    color: #fff;
+}
+#items ul li.nonlu, #items ul li#no_click{
+    color: #aaa;
+}
+#items ul li.nonlu h2{
+    color: #ccc;
+}
+
+#items ul li.lu:hover{
+    box-shadow: inset 0 0 10px #222;
+}
+#items ul li.lu{
+    color: #777;
+}
+#items ul li.lu h2{
+    color: #888;
+}
+
+/*
+ * Item seul
+*/
+article{
+    width: 75%;
+    overflow: hidden;
+    display: block;
+    font-size: 12px;
+    margin-right: -1px;
+}
+article #infos{
+    background: #8CB23A;
+    height: 30px;
+    line-height: 28px;
+    box-shadow: 0 0 5px #000;
+    margin-bottom: 2px;
+    position: relative;
+}
+article #left{
+    float: left;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #111;
+    white-space: nowrap;
+    z-index: 3;
+}
+article #left a{
+    text-decoration: none;
+    color: #111;
+}
+article #right{
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: #8CB23A;
+    padding-left: 5px;
+}
+article #right .case{
+    display: inline-block;
+    border-left: 1px dotted #637C29;
+    color: #232B0E;
+    padding: 0 5px;
+    font-size: 10px;
+}
+article #article_content{
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px 12px;
+    text-align: justify;
+    font-size: 13px;
+    line-height: 17px;
+    color: #111;
+}
+article #article_content img{
+    max-width: 100%;
+    margin: 5px;
+}
+#markas{
+    cursor: pointer;
+    text-align: center;
+    width: 40px;
+}
+article #article_content p{
+    margin: 0;
+    padding: 0;
+}
+article #article_content a{
+    color: #1155CC;
+    text-decoration: none;
+}
+article #article_content a:hover{
+    color: #498DFC;
+}
+
+/*
+ * Permet de rendre tous les éléments non cliquables et d'afficher un curseur spécial
+*/
+#cover_all{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    display: none;
+    cursor: progress;
+    background: rgba(0, 0, 0, 0.1);
+}
+/*
+ * Menu des paramètres
+*/
+#parametres ul li{
+    font-size: 13px;
+    display: block;
+}
+#parametres ul li a{
+    display: block;
+    list-style: none outside none;
+    height: 25px;
+    line-height: 23px;
+    padding: 5px 15px;
+    color: #ddd;
+    text-decoration: none;
+}
+#parametres ul li a:hover{
+    background: #8CB23A;
+    box-shadow: inset 0 0 5px #647C2B;
+    color: #333;
+}
+/*
+ * Design des messages d'erreur et de confirmation (<p class="message [type]">[message]</p>)
+*/
+#notification{
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    box-shadow: 0 0 15px #000;
+    z-index: 30;
+    font-size: 13px;
+    padding: 0 15px;
+    text-shadow: 1px 1px 2px #eee;
+    font-weight: bold;
+    left: 0;
+    top: 33px;
+}
+/*
+ * Gif de chargement
+*/
+#chargement{
+    margin-top: 3px;
+    margin-bottom: -3px;
+    visibility: hidden;
+}
+/*
+ * Design des tableaux
+*/
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #222;
+}
+table thead td{
+    background: #222;
+    padding: 3px 10px;
+    color: #eee;
+    height: 30px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+}
+table tbody tr{
+    font-size: 12px;
+    height: 25px;
+    background: #f3f3f3;
+    border-bottom: 1px dashed #e3e3e3;
+}
+table tbody td{
+    padding: 0 10px;
+}
+table tr:hover{
+    background: #f8f8f8;
+}
+table tbody a{
+    display: block;
+}
+/*
+ * Pour que les liens javascript puissent avoir un curseur
+*/
+a{
+    cursor: pointer;
+}
+/*
+ * Design des formulaires
+*/
+form input{
+    background: #fefefe;
+    padding: 7px;
+    border: 1px solid #ccc;
+    margin: -1px -1px 0 0;
+    width: 300px;
+    display: inline-block;
+}
+form input[type="submit"]{
+    background: #A1C450;
+    border: 1px solid #8CB23A;
+    color: #fff;
+    cursor: pointer;
+    width: 316px;
+}
+form input[type="file"]{
+    cursor: pointer;
+}
+form input:focus{
+    border: 1px solid #8CB23A;
+}
+form input:invalid{
+    color: #CE4040;
+}
+
+/*
+ * Formulaire de connexion
+*/
+#connexion{
+    width: 250px;
+    margin: 15px auto;
+}
+#connexion input{
+    margin: 0;
+}
+#connexion input[type="text"], #connexion input[type="password"], #connexion input[type="email"], #connexion label{
+    background: #fefefe;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: -1px;
+    width: 250px;
+    display: block;
+}
+#connexion input[type="submit"]{
+    background: #A1C450;
+    padding: 8px;
+    border: 1px solid #8CB23A;
+    margin-top: -1px;
+    width: 272px;
+    color: #fff;
+    cursor: pointer;
+}
+#connexion input[type="text"]:focus, #connexion input[type="password"]:focus, #connexion input[type="email"]:focus{
+    border: 1px solid #8CB23A;
+}
+#connexion label{
+    color: #999;
+    font-size: 13px;
+}
+#connexion input[type="checkbox"]{
+    margin-right: 5px;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+}
