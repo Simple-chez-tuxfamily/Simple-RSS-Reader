@@ -3,7 +3,6 @@
     <head>
         <title><?php echo $title; ?> - Simple RSS Reader</title>
         <link rel="shortcut icon" type="image/png" href="theme/images/favicon.png" />
-        <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
         <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
         
         <link type="text/css" rel="stylesheet" href="core/css.php" />

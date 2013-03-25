@@ -89,29 +89,29 @@ nav ul{
     padding: 2px 0px 3px 0;
     font-weight: bold;
 }
-#items ul li.nonlu:hover{
+.nonlu:hover{
     background: #8CB23A;
     box-shadow: inset 0px 0px 15px #647C2B;
     color: #333333;
 }
-#items ul li.nonlu:hover > h2{
+.nonlu:hover > h2{
     text-shadow: 1px 1px #333;
     color: #fff;
 }
-#items ul li.nonlu, #items ul li#no_click{
+.nonlu, #items ul li#no_click{
     color: #aaa;
 }
-#items ul li.nonlu h2{
+.nonlu h2{
     color: #ccc;
 }
 
-#items ul li.lu:hover{
+.lu:hover{
     box-shadow: inset 0 0 10px #222;
 }
-#items ul li.lu{
+.lu{
     color: #777;
 }
-#items ul li.lu h2{
+.lu h2{
     color: #888;
 }
 
@@ -142,7 +142,7 @@ article #left{
     white-space: nowrap;
     z-index: 3;
 }
-article #left a{
+#left a{
     text-decoration: none;
     color: #111;
 }
@@ -160,7 +160,7 @@ article #right .case{
     padding: 0 5px;
     font-size: 10px;
 }
-article #article_content{
+#article_content{
     overflow-y: auto;
     overflow-x: hidden;
     padding: 10px 12px;
@@ -169,7 +169,7 @@ article #article_content{
     line-height: 17px;
     color: #111;
 }
-article #article_content img{
+#article_content img{
     max-width: 100%;
     margin: 5px;
 }
@@ -178,15 +178,15 @@ article #article_content img{
     text-align: center;
     width: 40px;
 }
-article #article_content p{
+#article_content p{
     margin: 0;
     padding: 0;
 }
-article #article_content a{
+#article_content a{
     color: #1155CC;
     text-decoration: none;
 }
-article #article_content a:hover{
+#article_content a:hover{
     color: #498DFC;
 }
 
@@ -207,11 +207,11 @@ article #article_content a:hover{
 /*
  * Menu des paramètres
 */
-#parametres ul li{
+#parametres li{
     font-size: 13px;
     display: block;
 }
-#parametres ul li a{
+#parametres li a{
     display: block;
     list-style: none outside none;
     height: 25px;
@@ -220,7 +220,7 @@ article #article_content a:hover{
     color: #ddd;
     text-decoration: none;
 }
-#parametres ul li a:hover{
+#parametres li a:hover{
     background: #8CB23A;
     box-shadow: inset 0 0 5px #647C2B;
     color: #333;
@@ -258,7 +258,7 @@ table{
     border-collapse: collapse;
     border: 1px solid #222;
 }
-table thead td{
+thead td{
     background: #222;
     padding: 3px 10px;
     color: #eee;
@@ -267,19 +267,19 @@ table thead td{
     font-size: 13px;
     text-align: center;
 }
-table tbody tr{
+tbody tr{
     font-size: 12px;
     height: 25px;
     background: #f3f3f3;
     border-bottom: 1px dashed #e3e3e3;
 }
-table tbody td{
+tbody td{
     padding: 0 10px;
 }
 table tr:hover{
     background: #f8f8f8;
 }
-table tbody a{
+tbody a{
     display: block;
 }
 /*
