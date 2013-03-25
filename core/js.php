@@ -32,6 +32,13 @@
         $javascript = str_replace($mauvaises_choses, '', $javascript);
         
         header('Content-type: text/javascript; charset=utf-8'); // Encodage
+        // On empeche le cache
+        $ts = gmdate('D, d M Y H:i:s') . ' GMT';
+        header('Expires: ' . $ts);
+        header('Last-Modified: ' . $ts);
+        header('Pragma: no-cache');
+        header('Cache-Control: no-cache, must-revalidate');
+        
         echo str_replace('[PHP_ADD_TOKEN]', $_SESSION['token'], $javascript);
     ob_end_flush();
 ?>

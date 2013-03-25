@@ -38,7 +38,7 @@ header ul{
     margin: 0;
     padding: 0;
 }
-header ul li{   
+header li {   
     display: inline;
     padding: 5px;
 }
@@ -75,7 +75,7 @@ nav ul{
     margin: 0;
     padding: 0;
 }
-#items ul li{
+#items li{
     border-bottom: 1px solid #252525;
     font-size: 12px;
     list-style: none;
@@ -83,7 +83,7 @@ nav ul{
     padding: 5px 15px;
     cursor: pointer;
 }
-#items ul li h2{
+#items li h2{
     margin: 0;
     font-size: 13px;
     padding: 2px 0px 3px 0;
@@ -98,7 +98,7 @@ nav ul{
     text-shadow: 1px 1px #333;
     color: #fff;
 }
-.nonlu, #items ul li#no_click{
+.nonlu, #items li#no_click{
     color: #aaa;
 }
 .nonlu h2{
