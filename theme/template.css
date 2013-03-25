@@ -83,7 +83,7 @@ nav ul{
     padding: 5px 15px;
     cursor: pointer;
 }
-#items li h2{
+#items h2{
     margin: 0;
     font-size: 13px;
     padding: 2px 0px 3px 0;
@@ -98,8 +98,9 @@ nav ul{
     text-shadow: 1px 1px #333;
     color: #fff;
 }
-.nonlu, #items li#no_click{
+.nonlu, #no_click, #no_click:hover, #no_click a{
     color: #aaa;
+    cursor: default;
 }
 .nonlu h2{
     color: #ccc;

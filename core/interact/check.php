@@ -5,7 +5,11 @@
     include 'private/simplepie.php';
     
     $simple = new SimplePie();
-    $simple->enable_cache(false);
+    
+    $simple->enable_cache(true);
+    $simple->set_cache_location('private/cache');
+    $simple->set_cache_duration(600);
+    
     $simple->set_useragent('Mozilla/5.0 (compatible; SimplePie.org; simple.tuxfamily.org)');
     
     $sqlite = new PDO('sqlite:private/data.db');
@@ -31,12 +35,6 @@
                 break;
             
             $permalink = $sqlite->quote($item->get_permalink());
-                
-            $already_exist = $sqlite->query('SELECT count(id) AS nb_article FROM items WHERE permalink=' . $permalink . ' AND feed_id=' . $feed_id);
-            $already_exist = $already_exist->fetch();
-            
-            if(intval($already_exist['nb_article']) > 0)
-                break;
             
             $title = $sqlite->quote(strip_tags($item->get_title()));
             

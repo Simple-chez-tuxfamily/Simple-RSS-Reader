@@ -7,12 +7,18 @@
         if(!isset($testuser['id'])){            
             include 'private/simplepie.php';
             $simple = new SimplePie();
-            $simple->enable_cache(false);
+            
+            $simple->enable_cache(true);
+            $simple->set_cache_location('private/cache');
+            $simple->set_cache_duration(600);
+            
             $simple->set_useragent('Mozilla/5.0 (compatible; SimplePie.org; simple.tuxfamily.org)');
+            
             $simple->set_feed_url($_GET['url']);
             $simple->init();
             $simple->handle_content_type();
             $_GET['title'] = $simple->get_title();
+            
             if(!empty($_GET['title'])){
                 $sqlite->query('INSERT INTO feeds (title,url,last_check,user_id,error) VALUES(' . $sqlite->quote(htmlentities($_GET['title'])) . ',' . $sqlite->quote($_GET['url']) . ',' . $sqlite->quote(time()) . ',"' . $_SESSION['id'] . '","0")');
                 header('Location: ../index.php?p=parametres&page=flux&msg=9');
