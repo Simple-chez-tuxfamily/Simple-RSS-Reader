@@ -5,7 +5,7 @@
 	<link type="text/css" rel="stylesheet" href="../core/css.php" />
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
     </head>
-    <body>
+    <body id="bg_connexion">
         <header>Installation</header>
             <?php
                 if(isset($_GET['ok']))
@@ -15,11 +15,20 @@
                 else
                     echo '<div id="notification" style="background:#8BB548">Pour installer Simple RSS Reader, complétez le formulaire ci-dessous.</div>';
             ?>
-            <br /><br /><form id="connexion" action="install.php" method="post">
-                <input type="text" name="pseudo" placeholder="Nom d'utilisateur..." />
-                <input type="password" name="pwd1" placeholder="Mot de passe..." />
-                <input type="password" name="pwd2" placeholder="Mot de passe (encore)..." />
-                <input type="submit" value="Créer mon compte" />
-            </form>
+	    
+	    <div id="connexion">	    
+		<div id="titre">
+		    <img src="http://localhost/Simple-RSS-Reader/theme/images/favicon.png" /><br />
+		    Merci d'avoir choisi<br />
+		    <strong>Simple RSS Reader</strong>
+		    
+		</div>
+		<form id="formulaire" action="install.php" method="post">
+		    <input type="text" name="pseudo" placeholder="Nom d'utilisateur..." />
+		    <input type="password" name="pwd1" placeholder="Mot de passe..." />
+		    <input type="password" name="pwd2" placeholder="Mot de passe (encore)..." />
+		    <input type="submit" value="Créer mon compte" />
+		</form>
+	    </div>
     </body>
 </html>

@@ -1,28 +1,20 @@
-::selection{
-    color:#fff;
-    background:#649115
-}
-*::-moz-selection{
-    color:#fff;
-    background:#649115
-}
 html, body{
     overflow: hidden;
 }
 body{
     margin: 0;
     padding: 0;
-    background: #fcfcfc;  
-    font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
-    font-size: 15px;
+    background: #fafafa;
+    font-family: 'Open Sans', sans-serif, Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+    font-size: 13px;
 }
 header{
     background: #222;
-    height: 33px;
+    height: 35px;
     color: #eee;
     text-align: center;
-    line-height: 33px;
-    border-bottom: 3px solid #8CB23A;
+    line-height: 35px;
+    display: none;
 }
 header h1{
     margin: 0;
@@ -64,34 +56,49 @@ header a:hover{
 nav{
     margin: 0;
     padding: 0;
-    background: #303030;
-    width: 25%;
+    background: #222;
+    width: 27%;
     float: left;
-    overflow: auto;
     word-wrap: break-word;
-    box-shadow: inset 0px 0px 5px #111111;
+    overflow: auto;
+    box-shadow: 0 0 5px #555;
 }
 nav ul{
     margin: 0;
     padding: 0;
 }
+
+nav #action_bar{
+    height: 35px;
+    position: fixed;
+    width: 27%;
+    bottom: 0;
+    border-top: 2px solid #8CB23A;
+    background: #111;
+    display: none;
+}
+
+#action_bar ul li{
+    color: #fff;
+    display: inline;
+}
+
 #items li{
     border-bottom: 1px solid #252525;
-    font-size: 12px;
+    font-size: 11px;
     list-style: none;
     min-height: 35px;
-    padding: 5px 15px;
+    padding: 10px 15px;
     cursor: pointer;
 }
 #items h2{
     margin: 0;
     font-size: 13px;
-    padding: 2px 0px 3px 0;
+    padding: 2px 0px 5px 0;
     font-weight: bold;
 }
 .nonlu:hover{
     background: #8CB23A;
-    box-shadow: inset 0px 0px 15px #647C2B;
     color: #333333;
 }
 .nonlu:hover > h2{
@@ -105,14 +112,7 @@ nav ul{
 .nonlu h2{
     color: #ccc;
 }
-
-.lu:hover{
-    box-shadow: inset 0 0 10px #222;
-}
-.lu{
-    color: #777;
-}
-.lu h2{
+.lu, .lu h2{
     color: #888;
 }
 
@@ -120,68 +120,21 @@ nav ul{
  * Item seul
 */
 article{
-    width: 75%;
-    overflow: hidden;
-    display: block;
-    font-size: 12px;
-    margin-right: -1px;
-}
-article #infos{
-    background: #8CB23A;
-    height: 30px;
-    line-height: 28px;
-    box-shadow: 0 0 5px #000;
-    margin-bottom: 2px;
-    position: relative;
-}
-article #left{
-    float: left;
-    padding-left: 10px;
-    font-weight: bold;
-    font-size: 13px;
-    color: #111;
-    white-space: nowrap;
-    z-index: 3;
-}
-#left a{
-    text-decoration: none;
-    color: #111;
-}
-article #right{
-    top: 0;
-    right: 0;
-    position: absolute;
-    background: #8CB23A;
-    padding-left: 5px;
-}
-article #right .case{
-    display: inline-block;
-    border-left: 1px dotted #637C29;
-    color: #232B0E;
-    padding: 0 5px;
-    font-size: 10px;
-}
-#article_content{
+    width: 73%;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 10px 12px;
-    text-align: justify;
+    display: block;
     font-size: 13px;
-    line-height: 17px;
-    color: #111;
+    padding: 15px 25px 0 25px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+#article_content{  
+    text-align: justify;
 }
 #article_content img{
     max-width: 100%;
-    margin: 5px;
-}
-#markas{
-    cursor: pointer;
-    text-align: center;
-    width: 40px;
-}
-#article_content p{
-    margin: 0;
-    padding: 0;
+    margin: 0 3px;
 }
 #article_content a{
     color: #1155CC;
@@ -203,53 +156,52 @@ article #right .case{
     z-index: 20;
     display: none;
     cursor: progress;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.3);
 }
 /*
  * Menu des paramètres
 */
 #parametres li{
-    font-size: 13px;
     display: block;
+    border-bottom: 1px solid #252525;
+    font-size: 13px;
+    list-style: none;
+    cursor: pointer;
 }
 #parametres li a{
     display: block;
     list-style: none outside none;
     height: 25px;
     line-height: 23px;
-    padding: 5px 15px;
     color: #ddd;
     text-decoration: none;
+    padding: 13px 15px;
 }
-#parametres li a:hover{
+#parametres li:hover{
     background: #8CB23A;
-    box-shadow: inset 0 0 5px #647C2B;
+}
+
+#parametres li:hover a{
     color: #333;
 }
+
+
 /*
  * Design des messages d'erreur et de confirmation (<p class="message [type]">[message]</p>)
 */
 #notification{
     position: fixed;
     width: 100%;
-    height: 30px;
-    line-height: 30px;
-    box-shadow: 0 0 15px #000;
+    height: 35px;
+    line-height: 34px;
     z-index: 30;
     font-size: 13px;
     padding: 0 15px;
-    text-shadow: 1px 1px 2px #eee;
     font-weight: bold;
     left: 0;
-    top: 33px;
-}
-/*
- * Gif de chargement
-*/
-#chargement{
-    margin-top: 3px;
-    margin-bottom: -3px;
-    visibility: hidden;
+    top: 0;
+    box-shadow: 0 0 7px #111;
+    color: #111;
 }
 /*
  * Design des tableaux
@@ -257,28 +209,28 @@ article #right .case{
 table{
     border-spacing: 0;
     border-collapse: collapse;
-    border: 1px solid #222;
+    width: 100%;
 }
 thead td{
-    background: #222;
-    padding: 3px 10px;
-    color: #eee;
-    height: 30px;
+    padding: 5px 10px;
+    color: #333;
+    font-size: 15px;
+    font-style: italic;
     font-weight: bold;
-    font-size: 13px;
-    text-align: center;
+    border-bottom: 1px solid #ddd;
+    
 }
 tbody tr{
     font-size: 12px;
-    height: 25px;
-    background: #f3f3f3;
+    height: 35px;
+    line-height: 35px;
     border-bottom: 1px dashed #e3e3e3;
 }
 tbody td{
     padding: 0 10px;
 }
 table tr:hover{
-    background: #f8f8f8;
+    background: #f3f3f3;
 }
 tbody a{
     display: block;
@@ -294,7 +246,7 @@ a{
 */
 form input{
     background: #fefefe;
-    padding: 7px;
+    padding: 10px;
     border: 1px solid #ccc;
     margin: -1px -1px 0 0;
     width: 300px;
@@ -305,55 +257,219 @@ form input[type="submit"]{
     border: 1px solid #8CB23A;
     color: #fff;
     cursor: pointer;
-    width: 316px;
+    width: 322px;
+    padding: 9px;
 }
 form input[type="file"]{
     cursor: pointer;
+    padding: 6px;
 }
 form input:focus{
     border: 1px solid #8CB23A;
 }
-form input:invalid{
-    color: #CE4040;
+
+/*
+ * Formulaire de connexion (largeur > 700px)
+*/
+
+#bg_connexion{
+    background: #8cb23a;
 }
 
 /*
- * Formulaire de connexion
+ * Pour éviter que ce design s'applique sur les mobiles
 */
-#connexion{
-    width: 250px;
-    margin: 15px auto;
+@media (min-width: 701px){
+    #connexion{
+        width: 575px;
+        margin: 200px auto 0 auto;    
+    }
+    
+    #connexion #titre{
+        width: 225px;
+        float: left;
+        color: #fff;
+        font-size: 18px;
+        line-height: 30px;
+        
+    }
+    #connexion #titre img{
+        margin: -20px 0 -10px -20px;
+    }
+    #connexion #formulaire{
+        width: 310px;
+        float: right;
+        background: #f5f5f5;
+        padding: 20px 20px 5px 20px;
+        border-radius: 5px;
+    }
+    #connexion input{
+        margin: 0;
+        
+        border-radius: 5px;
+        padding: 10px;
+        width: 288px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    #connexion input[type="text"], #connexion input[type="password"]{
+        border: 2px solid #eee;
+    }
+    #connexion input[type="submit"]{
+        background: #8cb23a;
+        color: #fff;
+        font-weight: bold;
+        width: 310px;
+    }
+    #connexion input[type="submit"]:hover{
+        background: #7F9E37;
+        cursor: pointer;
+    }
+    #connexion input[type="text"]:focus, #connexion input[type="password"]:focus, #connexion input[type="email"]:focus{
+        border: 2px solid #8cb23a;
+    }
+    #connexion label{
+        color: #999;
+        font-size: 15px;
+        display: block;
+        margin: 10px;
+        cursor: pointer;
+        
+    }
 }
-#connexion input{
-    margin: 0;
+
+/*
+ * Nouveaux articles
+*/
+
+#entete{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 7px;
 }
-#connexion input[type="text"], #connexion input[type="password"], #connexion input[type="email"], #connexion label{
-    background: #fefefe;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-top: -1px;
-    width: 250px;
-    display: block;
+
+#entete #source{
+    font-size: 17px;
+    color: #7F9E37;
+    float: left;
 }
-#connexion input[type="submit"]{
-    background: #A1C450;
-    padding: 8px;
-    border: 1px solid #8CB23A;
-    margin-top: -1px;
-    width: 272px;
-    color: #fff;
+
+#entete #markas, #entete #quitter, #entete #date{
+    background: #eee;
+    float: right;
+    padding: 5px 10px;
+    color: #777;
+}
+#entete #markas:hover, #entete #quitter:hover{
+    background: #eaeaea;
     cursor: pointer;
 }
-#connexion input[type="text"]:focus, #connexion input[type="password"]:focus, #connexion input[type="email"]:focus{
-    border: 1px solid #8CB23A;
+
+#entete #quitter{
+    margin-left: 5px;
+    display: none;
 }
-#connexion label{
-    color: #999;
-    font-size: 13px;
+#entete #quitter{
+    margin-left: 5px;
+    display: none;
 }
-#connexion input[type="checkbox"]{
+
+#entete #date{
     margin-right: 5px;
-    padding: 0;
-    width: 15px;
-    height: 15px;
+}
+
+
+
+h1.titre{
+    font-size: 25px;
+    font-weight: normal;
+    margin: 15px 0 20px 0;
+}
+h1.titre a{
+    color: #111;
+    text-decoration: none;
+}
+
+.clear{
+    clear: both;
+}
+
+#menu{
+    background: #eee;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 27%;
+    height: 35px;
+    background: #222;
+    text-align: center;
+    box-shadow: 0 0 10px #111;
+    border-top: 1px solid #111;
+}
+
+#menu a{
+}
+
+#menu img{
+    width: 20px;
+    margin-top: 8px;    
+    padding: 0 7px;
+}
+
+
+/*
+ * Pour les mobiles
+*/
+
+@media (max-width: 700px){
+    nav{
+        width: 100%;
+    }
+    #menu{
+        width: 100%;
+        height: 50px;
+    }
+    #menu img{
+        width: 30px;
+        margin-top: 10px;
+    }
+    
+    article{
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: #fafafa;
+    }
+    
+    #entete #quitter{
+        display: block;
+    }
+    
+    #connexion #titre{
+        display: none;
+    }
+    #connexion input{
+        width: 100%;
+        -moz-box-sizing: border-box;
+        height: 40px;
+        font-size: 20px;
+    }
+    #connexion label{
+        color: #222;
+        width: 100%;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 10px;
+        font-size: 20px;
+    }
+    
+    
+    #notification{
+        height: 50px;
+        line-height: 48px;
+        font-size: 15px;
+    }
 }

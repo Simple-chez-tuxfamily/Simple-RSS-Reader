@@ -15,10 +15,11 @@
             }
         }
         else{
-            echo '<li id="no_click"><h2><a>Vous n\'avez rien à lire</a></h2>Lancez donc une mise à jour des flux!</li>';
+            echo '<li id="no_click"><h2><a>Vous n\'avez rien à lire</a></h2>Lancez donc une actualisation des flux!</li>';
             $i = 0;
         }
-        echo '</nav><article></article>';        
+        echo '</ul>
+        </nav><article></article>';        
         $title = '(' . $i . ') Flux non lus';
     }
 ?>

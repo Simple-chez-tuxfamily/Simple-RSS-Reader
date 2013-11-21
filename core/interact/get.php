@@ -15,13 +15,15 @@
         else
             $date = date('d/m/Y', $response['date']);
         
-        echo '<div id="infos">
-        <div id="left"><a href="' . $response['permalink'] . '" target="_blank">' . $response['title'] . '</a></div>
-        <div id="right">
-            <div class="case">' . $feeds['title'] . '</div>
-            <div class="case">' . $date . '</div>
-            <div class="case" id="markas" onclick=""></div>
-        </div>
-        </div><div id="article_content">' . $response['description'] . '<br /></div>';
+        
+        echo '<div id="entete">
+                <div id="source">' . $feeds['title'] . '</div>                
+                <div id="quitter" onclick="fermer_article()">X</div>
+                <div id="markas" onclick="">Chargement en cours...</div>
+                <div id="date">' . $date . '</div>
+                <div class="clear"></div>
+            </div>
+            <h1 class="titre"><a href="' . $response['permalink'] . '" target="_blank">' . $response['title'] . '</a></h1>
+            <div id="article_content">' . $response['description'] . '<br /></div>';
     }
 ?>

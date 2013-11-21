@@ -6,10 +6,7 @@
     
     $simple = new SimplePie();
     
-    $simple->enable_cache(true);
-    $simple->set_cache_location('private/cache');
-    $simple->set_cache_duration(600);
-    
+    $simple->enable_cache(false);    
     $simple->set_useragent('Mozilla/5.0 (compatible; SimplePie.org; simple.tuxfamily.org)');
     
     $sqlite = new PDO('sqlite:private/data.db');
@@ -30,13 +27,12 @@
             $error = 1;
         
         foreach($simple->get_items() as $item){
-            $date = strtotime($item->get_date());
-            if($date < $response['last_check'])
-                break;
-            
-            $permalink = $sqlite->quote($item->get_permalink());
-            
             $title = $sqlite->quote(strip_tags($item->get_title()));
+            $permalink = $sqlite->quote($item->get_permalink());
+            $date = strtotime($item->get_date());
+            
+            if($date < $response['last_check'] - 3600) // Si l'item lu date d'une heure avant la dernière recherche, on stoppe
+                break;
             
             $description = $sqlite->quote($item->get_content());
             if(empty($description))
@@ -58,4 +54,6 @@
         else
             $sqlite->query('UPDATE feeds SET error="1" WHERE id=' . $feed_id);
     }
+    unset($item);
+    unset($simple);
 ?>

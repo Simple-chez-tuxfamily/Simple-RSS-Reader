@@ -16,18 +16,29 @@
         <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
         <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
     </head>
-    <body>
+    <body id="bg_connexion">
 	<?php
 	    if(isset($_GET['erreur']))
 		echo '<script type="text/javascript">document.body.onload = function(){afficher_message("Mauvais nom d\'utilisateur ou mot de passe incorrect!", 3, 0);}</script>';
 	?>
-        <div id="notification" style="background:#D63535;">Erreur: Veuillez activer JavaScript!</div><header>Connexion</header>
-        <form id="connexion" action="core/interact.php?action=connect" method="post">
-            <input type="text" name="pseudo" required placeholder="Nom d'utilisateur..." />
-            <input type="password" name="password" required placeholder="Mot de passe..." />
-            <label><input type="checkbox" name="keep" /> Se souvenir de moi</label>
-            <input type="submit" value="Connexion" />
-        </form>
+        <div id="notification" style="background:#D63535;">Erreur: Veuillez activer JavaScript!</div>
+        
+	<div id="connexion">	    
+	    <div id="titre">
+		<img src="http://localhost/Simple-RSS-Reader/theme/images/favicon.png" /><br />
+		Bienvenue sur<br />
+		<strong>Simple RSS Reader</strong>
+		
+	    </div>
+	    <form id="formulaire" action="core/interact.php?action=connect" method="post">
+		<input type="text" name="pseudo" required placeholder="Nom d'utilisateur..." />
+	        <input type="password" name="password" required placeholder="Mot de passe..." />
+		<label><input type="checkbox" name="keep" /> Se souvenir de moi</label>
+		<input type="submit" value="Connexion" />
+	    </form>    
+	</div>
+	
+	
 	<script>masquer_message();</script>
     </body>
 </html>

@@ -8,9 +8,7 @@
             include 'private/simplepie.php';
             $simple = new SimplePie();
             
-            $simple->enable_cache(true);
-            $simple->set_cache_location('private/cache');
-            $simple->set_cache_duration(600);
+            $simple->enable_cache(false);
             
             $simple->set_useragent('Mozilla/5.0 (compatible; SimplePie.org; simple.tuxfamily.org)');
             

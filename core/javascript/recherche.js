@@ -14,7 +14,18 @@ function liste_ids(){
     ids_a_verifier = null;
     
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {            
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            document.head || (document.head = document.getElementsByTagName('head')[0]);
+            
+            var link = document.createElement('link');
+            link.id = 'dynamic-favicon';
+            link.rel = 'shortcut icon';
+            link.href = 'theme/images/favicon_ag.gif';
+            if(document.getElementById('dynamic-favicon'))
+                document.head.removeChild(oldLink);
+                
+            document.head.appendChild(link);
+            
             ids_a_verifier = xhr.responseText.split(';');
             analyser_flux(0);
         }
@@ -37,7 +48,6 @@ function analyser_flux(position){
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             masquer_message();
-            masquer_loader();
             if(typeof ids_a_verifier[position + 1] != 'undefined')
                 analyser_flux(position + 1);
             else
@@ -46,9 +56,8 @@ function analyser_flux(position){
     }
     
     flux_actuel = position + 1;
-    afficher_message('Recherche en cours (' + flux_actuel + ' sur ' + ids_a_verifier.length + ')...', 0, 1);    
+    afficher_message('Agrégation en cours (' + flux_actuel + ' sur ' + ids_a_verifier.length + ')...', 0, 1);    
     document.getElementById('cover_all').style.display = 'block';
-    afficher_loader();
     
     xhr.open('GET', 'core/interact.php?action=check&token=[PHP_ADD_TOKEN]&id=' + ids_a_verifier[position], true);
     xhr.send(null);
@@ -69,7 +78,6 @@ function nettoyer_base(){
     
     afficher_message('Nettoyage de la base de données...', 0, 1);    
     document.getElementById('cover_all').style.display = 'block';
-    afficher_loader();
     
     xhr.open('GET', 'core/interact.php?action=clean&token=[PHP_ADD_TOKEN]', true);
     xhr.send(null);
