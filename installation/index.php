@@ -18,7 +18,7 @@
 	    
 	    <div id="connexion">	    
 		<div id="titre">
-		    <img src="http://localhost/Simple-RSS-Reader/theme/images/favicon.png" /><br />
+		    <img src="theme/images/favicon.png" /><br />
 		    Merci d'avoir choisi<br />
 		    <strong>Simple RSS Reader</strong>
 		    
