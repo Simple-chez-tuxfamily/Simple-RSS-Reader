@@ -31,7 +31,7 @@
             $permalink = $sqlite->quote($item->get_permalink());
             $date = strtotime($item->get_date());
             
-            if($date < $response['last_check'] - 3600) // Si l'item lu date d'une heure avant la dernière recherche, on stoppe
+            if($date < $response['last_check'] - 30) // Si l'item lu date de 30 secondes avant la dernière recherche, on stoppe
                 break;
             
             $description = $sqlite->quote($item->get_content());

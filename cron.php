@@ -2,18 +2,20 @@
     if(!isset($_GET['uid']) or !is_numeric($_GET['uid']))
         die('Erreur: aucun id n\'a été spécifié!');
         
+    // Nécéssaire au bon déroulement de l'agrégation
     set_time_limit(0);
     error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
         
+    // On charge SimplePie
     include 'core/private/simplepie.php';
     
     $simple = new SimplePie();
     
-    $simple->enable_cache(false);    
-    $simple->set_useragent('Mozilla/5.0 (compatible; SimplePie.org; simple.tuxfamily.org)');
+    $simple->enable_cache(false); // On désactive la mise en cache
+    $simple->set_useragent('Mozilla/5.0 (compatible; SimplePie.org; simple.tuxfamily.org)'); // User-Agent propre à SRR
     
-    $sqlite = new PDO('sqlite:core/private/data.db');
-    $query = $sqlite->query('SELECT id,url,last_check FROM feeds WHERE user_id=' . $sqlite->quote($_GET['uid']));
+    $sqlite = new PDO('sqlite:core/private/data.db'); // On charge la base de données
+    $query = $sqlite->query('SELECT id,url,last_check FROM feeds WHERE user_id=' . $sqlite->quote($_GET['uid'])); // On récupère la liste des flux
     $time = time();
     
     while($response = $query->fetch()){
@@ -33,7 +35,7 @@
                 $permalink = $sqlite->quote($item->get_permalink());
                 $date = strtotime($item->get_date());
                 
-                if($date < $response['last_check'] - 3600) // Si l'item lu date d'une heure avant la dernière recherche, on stoppe
+                if($date < $response['last_check'] - 30) // Si l'item lu date de 30 secondes avant la dernière recherche, on stoppe
                     break;
                 
                 $description = $sqlite->quote($item->get_content());
