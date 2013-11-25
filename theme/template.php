@@ -10,7 +10,6 @@
         </style>
         <link type="text/css" rel="stylesheet" href="core/css.php" />
         <script type="text/javascript" src="core/js.php"></script>
-        
     </head>
     <body>
         <?php
