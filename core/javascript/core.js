@@ -36,19 +36,3 @@ function staying_alive(){
     xhr.send(null);
     setTimeout('staying_alive',  30000);
 }
-
-/*
- * Code permettant d'éviter les fausses manipulations en rechargeant la page par mégarde
-*/
-var ConfirmationQuitter = function (event){
-    event = event || window.event;
-
-    var message = 'Êtes-vous sûr(e) de vouloir quitter Simple RSS Reader?';
-
-    if(event) // Pour les vieux navigateurs
-        event.returnValue = message;
-
-    return message;
-};
-
-window.onbeforeunload = ConfirmationQuitter; // On active la "protection"
