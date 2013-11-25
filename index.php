@@ -1,33 +1,37 @@
 <?php
-    ob_start('ob_gzhandler'); // Compression GZIP
-        header('Content-Type: text/html; charset=utf-8'); // Encodage
+    ob_start('ob_gzhandler'); // On active la compression GZIP
+    header('Content-Type: text/html; charset=utf-8'); // On défini l'encodage (UTF-8)
         
-        session_start();
+    session_start();
     
-        if(file_exists('installation/install.php'))
-            header('Location: installation/index.php');
+    if(file_exists('installation/install.php')) // Si le fichier d'installation existe, on redirige l'utilisateur
+        header('Location: installation/index.php'); 
             
-        ob_start();
-            if(isset($_SESSION['uname'])){
-                $sqlite = new PDO('sqlite:core/private/data.db');
-                $result = $sqlite->query('SELECT count(id) FROM items WHERE read="0" AND user_id="' . $_SESSION['id'] . '"');
-                $result = $result->fetch();
-                $nonlu = $result[0];
+    ob_start();
+        if(isset($_SESSION['uname'])){ // Si l'utilisateur est connecté
+            $sqlite = new PDO('sqlite:core/private/data.db'); // On charge la base de données
             
-                if(!isset($_GET['p']))
-                    $_GET['p'] = 'lire';
-                if(!file_exists('pages/' . $_GET['p'] . '.php'))
-                    $_GET['p'] = '404';
-            }
-            else
-                $_GET['p'] = 'connexion';
+            // On récupère le nombre d'items non lus
+            $result = $sqlite->query('SELECT count(id) FROM items WHERE read="0" AND user_id="' . $_SESSION['id'] . '"');
+            $result = $result->fetch();
+            $nonlu = $result[0];
+            
+            if(!isset($_GET['p'])) // Page par défaut
+                $_GET['p'] = 'lire';
                 
-            include './pages/' . $_GET['p'] . '.php';
+            if(!file_exists('pages/' . $_GET['p'] . '.php')) // Si la page n'existe pas
+                $_GET['p'] = '404';
+        }
+        else // Si l'utilisateur n'est pas connecté, on le redirige 
+            $_GET['p'] = 'connexion';
+            
+        include './pages/' . $_GET['p'] . '.php'; // On inclu la bonne page
                 
-            $content = ob_get_contents();
-        ob_end_clean();
+        $content = ob_get_contents();
         
-        if(!isset($no_header))
+        ob_end_clean();
+            
+        if(!isset($no_header)) // Doit-on charger le thème?
             include './theme/template.php';
         else
             echo $content;
