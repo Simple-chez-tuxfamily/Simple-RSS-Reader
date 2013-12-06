@@ -22,7 +22,6 @@
                     echo '<a onclick="effacer_lus();" title="Effacer les items lus"><img src="theme/images/effacer.png" alt="Effacer les items lus" /></a>
                     <a href="?p=parametres" title="Paramètres"><img src="theme/images/parametres.png" alt="Paramètres" /></a>';
                 echo'    <a href="?p=deconnexion" title="Déconnexion"><img src="theme/images/deconnexion.png" alt="Déconnexion" /></a>
-                </ul>
             </div>
             
             <div id="cover_all"></div>'; 
