@@ -1,0 +1,475 @@
+html, body{
+    overflow: hidden;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+    font-family: 'Open Sans', sans-serif, Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
+    font-size: 13px;
+}
+header{
+    background: #222;
+    height: 35px;
+    color: #eee;
+    text-align: center;
+    line-height: 35px;
+    display: none;
+}
+header h1{
+    margin: 0;
+    padding: 0;
+    color: #eee;
+    font-size: 16px;
+    font-weight: normal;
+}
+header ul{
+    list-style: none;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+header li {   
+    display: inline;
+    padding: 5px;
+}
+header #header_gauche{
+    left: 10px;
+}
+header #header_droite{
+    right: 10px;
+    display: inline;
+}
+header a{
+    color: #bbb;
+    font-size: 13px;
+    text-decoration: none;
+}
+header a:hover{
+    color: #8CB23A;
+}
+
+/*
+ * Liste des items
+*/
+nav{
+    margin: 0;
+    padding: 0;
+    background: #222;
+    width: 27%;
+    float: left;
+    word-wrap: break-word;
+    overflow: auto;
+    box-shadow: 0 0 5px #555;
+}
+nav ul{
+    margin: 0;
+    padding: 0;
+}
+
+nav #action_bar{
+    height: 35px;
+    position: fixed;
+    width: 27%;
+    bottom: 0;
+    border-top: 2px solid #8CB23A;
+    background: #111;
+    display: none;
+}
+
+#action_bar ul li{
+    color: #fff;
+    display: inline;
+}
+
+#items li{
+    border-bottom: 1px solid #252525;
+    font-size: 11px;
+    list-style: none;
+    min-height: 35px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+#items h2{
+    margin: 0;
+    font-size: 13px;
+    padding: 2px 0px 5px 0;
+    font-weight: bold;
+}
+.nonlu:hover{
+    background: #8CB23A;
+    color: #333333;
+}
+.nonlu:hover > h2{
+    text-shadow: 1px 1px #333;
+    color: #fff;
+}
+.nonlu, #no_click, #no_click:hover, #no_click a{
+    color: #aaa;
+    cursor: default;
+}
+.nonlu h2{
+    color: #ccc;
+}
+.lu, .lu h2{
+    color: #888;
+}
+
+/*
+ * Item seul
+*/
+article{
+    width: 73%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+    font-size: 13px;
+    padding: 15px 25px 0 25px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+#article_content{  
+    text-align: justify;
+}
+#article_content img{
+    max-width: 100%;
+    margin: 0 3px;
+}
+#article_content a{
+    color: #1155CC;
+    text-decoration: none;
+}
+#article_content a:hover{
+    color: #498DFC;
+}
+
+/*
+ * Permet de rendre tous les éléments non cliquables et d'afficher un curseur spécial
+*/
+#cover_all{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    display: none;
+    cursor: progress;
+    background: rgba(0, 0, 0, 0.3);
+}
+/*
+ * Menu des paramètres
+*/
+#parametres li{
+    display: block;
+    border-bottom: 1px solid #252525;
+    font-size: 13px;
+    list-style: none;
+    cursor: pointer;
+}
+#parametres li a{
+    display: block;
+    list-style: none outside none;
+    height: 25px;
+    line-height: 23px;
+    color: #ddd;
+    text-decoration: none;
+    padding: 13px 15px;
+}
+#parametres li:hover{
+    background: #8CB23A;
+}
+
+#parametres li:hover a{
+    color: #333;
+}
+
+
+/*
+ * Design des messages d'erreur et de confirmation (<p class="message [type]">[message]</p>)
+*/
+#notification{
+    position: fixed;
+    width: 100%;
+    height: 35px;
+    line-height: 34px;
+    z-index: 30;
+    font-size: 13px;
+    padding: 0 15px;
+    font-weight: bold;
+    left: 0;
+    top: 0;
+    box-shadow: 0 0 7px #111;
+    color: #111;
+}
+/*
+ * Design des tableaux
+*/
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+thead td{
+    padding: 5px 10px;
+    color: #333;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    
+}
+tbody tr{
+    font-size: 12px;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px dashed #e3e3e3;
+}
+tbody td{
+    padding: 0 10px;
+}
+table tr:hover{
+    background: #f3f3f3;
+}
+tbody a{
+    display: block;
+}
+/*
+ * Pour que les liens javascript puissent avoir un curseur
+*/
+a{
+    cursor: pointer;
+}
+/*
+ * Design des formulaires
+*/
+form input{
+    background: #fefefe;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: -1px -1px 0 0;
+    width: 300px;
+    display: inline-block;
+}
+form input[type="submit"]{
+    background: #A1C450;
+    border: 1px solid #8CB23A;
+    color: #fff;
+    cursor: pointer;
+    width: 322px;
+    padding: 9px;
+}
+form input[type="file"]{
+    cursor: pointer;
+    padding: 6px;
+}
+form input:focus{
+    border: 1px solid #8CB23A;
+}
+
+/*
+ * Formulaire de connexion (largeur > 700px)
+*/
+
+#bg_connexion{
+    background: #8cb23a;
+}
+
+/*
+ * Pour éviter que ce design s'applique sur les mobiles
+*/
+@media (min-width: 701px){
+    #connexion{
+        width: 575px;
+        margin: 200px auto 0 auto;    
+    }
+    
+    #connexion #titre{
+        width: 225px;
+        float: left;
+        color: #fff;
+        font-size: 18px;
+        line-height: 30px;
+        
+    }
+    #connexion #titre img{
+        margin: -20px 0 -10px -20px;
+    }
+    #connexion #formulaire{
+        width: 310px;
+        float: right;
+        background: #f5f5f5;
+        padding: 20px 20px 5px 20px;
+        border-radius: 5px;
+    }
+    #connexion input{
+        margin: 0;
+        
+        border-radius: 5px;
+        padding: 10px;
+        width: 288px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    #connexion input[type="text"], #connexion input[type="password"]{
+        border: 2px solid #eee;
+    }
+    #connexion input[type="submit"]{
+        background: #8cb23a;
+        color: #fff;
+        font-weight: bold;
+        width: 310px;
+    }
+    #connexion input[type="submit"]:hover{
+        background: #7F9E37;
+        cursor: pointer;
+    }
+    #connexion input[type="text"]:focus, #connexion input[type="password"]:focus, #connexion input[type="email"]:focus{
+        border: 2px solid #8cb23a;
+    }
+    #connexion label{
+        color: #999;
+        font-size: 15px;
+        display: block;
+        margin: 10px;
+        cursor: pointer;
+        
+    }
+}
+
+/*
+ * Nouveaux articles
+*/
+
+#entete{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 7px;
+}
+
+#entete #source{
+    font-size: 17px;
+    color: #7F9E37;
+    float: left;
+}
+
+#entete #markas, #entete #quitter, #entete #date{
+    background: #eee;
+    float: right;
+    padding: 5px 10px;
+    color: #777;
+}
+#entete #markas:hover, #entete #quitter:hover{
+    background: #eaeaea;
+    cursor: pointer;
+}
+
+#entete #quitter{
+    margin-left: 5px;
+    display: none;
+}
+#entete #quitter{
+    margin-left: 5px;
+    display: none;
+}
+
+#entete #date{
+    margin-right: 5px;
+}
+
+
+
+h1.titre{
+    font-size: 25px;
+    font-weight: normal;
+    margin: 15px 0 20px 0;
+}
+h1.titre a{
+    color: #111;
+    text-decoration: none;
+}
+
+.clear{
+    clear: both;
+}
+
+#menu{
+    background: #eee;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 27%;
+    height: 35px;
+    background: #222;
+    text-align: center;
+    box-shadow: 0 0 10px #111;
+    border-top: 1px solid #111;
+}
+
+#menu a{
+}
+
+#menu img{
+    width: 20px;
+    margin-top: 8px;    
+    padding: 0 7px;
+}
+
+
+/*
+ * Pour les mobiles
+*/
+
+@media (max-width: 700px){
+    nav{
+        width: 100%;
+    }
+    #menu{
+        width: 100%;
+        height: 50px;
+    }
+    #menu img{
+        width: 30px;
+        margin-top: 10px;
+    }
+    
+    article{
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: #fafafa;
+    }
+    
+    #entete #quitter{
+        display: block;
+    }
+    
+    #connexion #titre{
+        display: none;
+    }
+    #connexion input{
+        width: 100%;
+        -moz-box-sizing: border-box;
+        height: 40px;
+        font-size: 20px;
+    }
+    #connexion label{
+        color: #222;
+        width: 100%;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 10px;
+        font-size: 20px;
+    }
+    
+    
+    #notification{
+        height: 50px;
+        line-height: 48px;
+        font-size: 15px;
+    }
+}
