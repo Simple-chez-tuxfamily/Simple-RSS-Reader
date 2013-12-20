@@ -26,7 +26,7 @@
             
             if(isset($_POST['keep'])){
                 $url = str_replace('core/interact.php', '', $_SERVER['SCRIPT_NAME']); // Chemin du cookie
-                setcookie('srr_userconnect', $result[1] . ';' . $result[2], (time() + 2592000),$url);
+                setcookie('srr_userconnect', $result[1] . ';' . $result[2], (time() + 7776000),$url);
             }
             
             header('Location: ../index.php');
