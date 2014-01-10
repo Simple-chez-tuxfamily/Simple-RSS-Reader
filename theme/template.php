@@ -32,7 +32,7 @@
                 echo'    <a href="?p=deconnexion" title="Déconnexion"><img src="theme/images/deconnexion.png" alt="Déconnexion" /></a>
             </div>
             
-            <div id="cover_all"></div>'; 
+            <div id="cover_all"></div><div id="loader"></div>'; 
             echo $content;
             if(!isset($_GET['nobar'])){
                 echo '<script type="text/javascript">

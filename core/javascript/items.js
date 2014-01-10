@@ -7,6 +7,7 @@
   * Fonction qui charge un item
 */
 function load_item(id){
+    afficher_loader();
     var xhr = getXMLHttpRequest();
     
     // Pour le thème mobile: permet de contrôler l'affichage de l'article   
@@ -27,7 +28,8 @@ function load_item(id){
 /*
   * Fonction qui change l'état d'un item (lu ou non)
 */
-function mark_as(id, lu){        
+function mark_as(id, lu){
+    afficher_loader();
     var xhr = getXMLHttpRequest();
     
     if(lu == 0){
@@ -39,6 +41,7 @@ function mark_as(id, lu){
                     items_non_lus++;
                 document.getElementById('item' + id).className = 'nonlu';
                 changer_titre();
+                masquer_loader();
             }
         };
         xhr.open('GET', 'core/interact.php?action=set&token=[PHP_ADD_TOKEN]&id=' + id + '&as=unread', true);
@@ -53,6 +56,7 @@ function mark_as(id, lu){
                     items_non_lus--;
                 document.getElementById('item' + id).className = 'lu';
                 changer_titre();
+                masquer_loader();
             }
         };
         xhr.open('GET', 'core/interact.php?action=set&token=[PHP_ADD_TOKEN]&id=' + id + '&as=read', true);

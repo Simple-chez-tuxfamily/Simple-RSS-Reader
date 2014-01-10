@@ -419,12 +419,12 @@ h1.titre a{
 .flottant{
     position: fixed;
     
-    top: -moz-calc(100% - 50px);
-    top: -webkit-calc(100% - 50px);
-    top: -o-calc(100% - 50px);
-    top: -ms-calc(100% - 50px);
-    top: calc(100% - 50px);
     top: 50%;
+    top: -moz-calc(50% - 25px);
+    top: -webkit-calc(50% - 25px);
+    top: -o-calc(50% - 25px);
+    top: -ms-calc(50% - 25px);
+    top: calc(50% - 25px);
     
     display: none;
     opacity: 0.3;
@@ -441,6 +441,32 @@ h1.titre a{
 }
 #btn_suivant{
     right: 0;
+}
+
+/* Design du loader */
+#loader{
+    width: 120px;
+    height: 120px;
+    background: url('../theme/images/chargement.gif');
+    position: absolute;
+    
+    top: 50%;
+    top: -moz-calc(50% - 60px);
+    top: -webkit-calc(50% - 60px);
+    top: -o-calc(50% - 60px);
+    top: -ms-calc(50% - 60px);
+    top: calc(50% - 60px);
+    
+    left: 50%;
+    left: -moz-calc(50% - 60px);
+    left: -webkit-calc(50% - 60px);
+    left: -o-calc(50% - 60px);
+    left: -ms-calc(50% - 60px);
+    left: calc(50% - 60px);
+    
+    z-index: 20;
+    
+    display: none;
 }
 
 /* Fix des liens pour Internet explorer... */

@@ -50,3 +50,19 @@ function afficher_article(){
     if(document.getElementsByTagName('article')[0] && window.innerWidth <= 700)
         document.getElementsByTagName('article')[0].style.display = 'block';
 }
+
+/*
+ * Fonction qui permet d'afficher le loader
+*/
+
+function afficher_loader(){
+    document.getElementById('loader').style.display = 'block';
+}
+
+/*
+ * Fonction qui permet de masquer le loader
+*/
+
+function masquer_loader(){
+    document.getElementById('loader').style.display = 'none';
+}
