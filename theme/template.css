@@ -415,6 +415,34 @@ h1.titre a{
     padding: 0 7px;
 }
 
+/* Design des boutons flottants */
+.flottant{
+    position: fixed;
+    
+    top: -moz-calc(100% - 50px);
+    top: -webkit-calc(100% - 50px);
+    top: -o-calc(100% - 50px);
+    top: -ms-calc(100% - 50px);
+    top: calc(100% - 50px);
+    top: 50%;
+    
+    display: none;
+    opacity: 0.3;
+    width: 50px;
+    line-height: 50px;
+    height: 50px;
+    background: #eee;
+    color: #222;
+    font-size: 40px;
+    text-align: center;
+}
+#btn_precedent{
+    left: 0;
+}
+#btn_suivant{
+    right: 0;
+}
+
 /* Fix des liens pour Internet explorer... */
 a img{
     border: 0;
@@ -471,10 +499,13 @@ a img{
         font-size: 20px;
     }
     
-    
     #notification{
         height: 50px;
         line-height: 48px;
         font-size: 15px;
+    }
+    
+    .flottant{
+        display: inline-block;
     }
 }
