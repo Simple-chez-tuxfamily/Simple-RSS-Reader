@@ -415,6 +415,11 @@ h1.titre a{
     padding: 0 7px;
 }
 
+/* Fix des liens pour Internet explorer... */
+a img{
+    border: 0;
+}
+
 
 /*
  * Pour les mobiles
