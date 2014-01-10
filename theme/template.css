@@ -419,12 +419,7 @@ h1.titre a{
 .flottant{
     position: fixed;
     
-    top: 50%;
-    top: -moz-calc(50% - 25px);
-    top: -webkit-calc(50% - 25px);
-    top: -o-calc(50% - 25px);
-    top: -ms-calc(50% - 25px);
-    top: calc(50% - 25px);
+    top: 45%;
     
     display: none;
     opacity: 0.3;
