@@ -5,7 +5,7 @@
                     <li><a href="?p=parametres&page=flux" onclick="afficher_article()">Mes abonnements</a></li>
                     <li><a href="?p=parametres&page=compte" onclick="afficher_article()">Mon compte</a></li>
                     <li><a href="?p=parametres&page=cron" onclick="afficher_article()">Agrégation via cron</a></li>
-                    <li><a href="?p=parametres&page=impexp" onclick="afficher_article()">Importer/exporter mes flux</a></li>';
+                    <li><a href="?p=parametres&page=impexp" onclick="afficher_article()">Importer/exporter mes abonnements</a></li>';
                 if($_SESSION['admin'] == 1){
                     echo '<li><a href="?p=parametres&page=utilisateurs" onclick="afficher_article()">Gestion des utilisateurs</a></li>
                     <li><a href="?p=parametres&page=maj" onclick="afficher_article()">Vérifier la présence d\'une mise à jour</a></li>';
@@ -29,7 +29,7 @@
                             echo 'Vérifier la présence d\'une mise à jour';
                             break;
                         case 'impexp':
-                            echo 'Importer/exporter mes flux';
+                            echo 'Importer/exporter mes abonnements';
                             break;
                         case 'cron':
                             echo 'Agrégation via cron';
