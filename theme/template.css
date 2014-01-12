@@ -440,27 +440,12 @@ h1.titre a{
 
 /* Design du loader */
 #loader{
-    width: 120px;
-    height: 120px;
-    background: url('../theme/images/chargement.gif');
-    position: absolute;
-    
-    top: 50%;
-    top: -moz-calc(50% - 60px);
-    top: -webkit-calc(50% - 60px);
-    top: -o-calc(50% - 60px);
-    top: -ms-calc(50% - 60px);
-    top: calc(50% - 60px);
-    
-    left: 50%;
-    left: -moz-calc(50% - 60px);
-    left: -webkit-calc(50% - 60px);
-    left: -o-calc(50% - 60px);
-    left: -ms-calc(50% - 60px);
-    left: calc(50% - 60px);
-    
-    z-index: 20;
-    
+    width: 73%;
+    height: 100%;
+    right: 0;
+    background: url('../theme/images/chargement.gif') no-repeat center #fafafa;
+    position: absolute;    
+    z-index: 40;
     display: none;
 }
 
@@ -468,7 +453,6 @@ h1.titre a{
 a img{
     border: 0;
 }
-
 
 /*
  * Pour les mobiles
@@ -524,6 +508,10 @@ a img{
         height: 50px;
         line-height: 48px;
         font-size: 15px;
+    }
+    
+    #loader{
+        width: 100%;
     }
     
     .flottant{
