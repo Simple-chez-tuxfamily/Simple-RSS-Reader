@@ -1,7 +1,7 @@
 # [Simple RSS Reader](http://simple.tuxfamily.org/)
 ## Présentation
 
-[Simple RSS Reader](http://simple.tuxfamily.org/) est un agrégateur de flux RSS/Atom libre publié sous licence libre GPL v3. Écrit en PHP et utilisant SQLite 3 comme base de données, il est conçu pour être très simple d'utilisateur et de permettre à un utilisateur lambda d'auto-héberger son propre agrégateur.
+[Simple RSS Reader](http://simple.tuxfamily.org/) est un agrégateur de flux RSS/Atom libre publié sous licence libre GPL v3. Écrit en PHP et utilisant SQLite 3 comme base de données, il est conçu pour être très simple d'utilisation et de permettre à un utilisateur lambda d'auto-héberger son propre agrégateur.
 
 ## Installation
 
