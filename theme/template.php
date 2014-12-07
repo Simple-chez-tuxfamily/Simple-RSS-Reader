@@ -2,10 +2,7 @@
 <html>
     <head>
         <title><?php echo $title; ?> - Simple RSS Reader</title>
-        <link rel="shortcut icon" type="image/png" href="theme/images/favicon.png" />      
-        <style type="text/css">
-            @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,700);
-        </style>
+        <link rel="shortcut icon" type="image/png" href="theme/images/favicon.png" />
         <link type="text/css" rel="stylesheet" href="core/css.php" />
         <script type="text/javascript" src="core/js.php"></script>
         <!-- Balises pour les mobiles -->

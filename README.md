@@ -12,3 +12,4 @@
 ## Licence
 * [Simple RSS Reader](http://simple.tuxfamily.org/) est distribué selon les termes de la [licence GPL v3](http://www.gnu.org/licenses/gpl.html).
 * [SimplePie](http://simplepie.org/), contenu dans [Simple RSS Reader](http://simple.tuxfamily.org/) est distribué selon les termes de la [licence BSD v3](http://opensource.org/licenses/bsd-license.html).
+* [OpenSans](http://opensans.com/), contenu dans [Simple RSS Reader](http://simple.tuxfamily.org/) est distribué selon les termes de la [Apache License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).

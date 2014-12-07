@@ -1,3 +1,24 @@
+/* Fonte OpenSans */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url('../theme/fonts/opensans_normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans'), local('OpenSans'), url('../theme/fonts/opensans_bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Open Sans'), local('OpenSans'), url('../theme/fonts/opensans_light_italic.woff') format('woff');
+}
+
+/* Thème */
 html, body{
     overflow: hidden;
 }

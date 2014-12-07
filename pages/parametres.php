@@ -139,7 +139,7 @@
                             break;
                         case 'maj':
                             if($_SESSION['admin'] == 1){
-                                $version_locale = 2.1; // Numéro de version de l'instance locale
+                                $version_locale = 2.2; // Numéro de version de l'instance locale
                                 $derniere_version_stable = file_get_contents('http://simple.tuxfamily.org/version.srr'); // Numéro de version de la dernière version stable
                                 if($derniere_version_stable > $version_locale)
                                     echo '<p>La version ' . $derniere_version_stable . ' est disponible. <a href="https://github.com/quent1-fr/Simple-RSS-Reader/zipball/master">Cliquez ici</a> pour la télécharger</p>';
